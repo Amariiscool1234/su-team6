@@ -4,4 +4,4 @@
  I am a Junior Computer Science Student at UNCG. My favorite hobbies are going to the gym, hanging out with friends, and listening to music.
 
 ## My Goals in this course.
-My goals is to understand the ways of software engineering. Building apps, learning git/github, and gaining collab experience with building nice projects.
+My goals is to understand the ways of software engineering. Building apps, learning git/github, and gaining team experience with building nice projects.
