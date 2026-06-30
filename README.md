@@ -24,8 +24,3 @@ Amari Ames
     3. View customer statistics -  The providers can view how many players have joined, requested to join or signed up as substitutes for their teams.
     4. Reply to reviews- They can respond to player reviews to provide feedback, updates, or address concerns about any games or team experiences.
 
-3. SysAdmin (the user with the admin role if applicable):
-    1. Manage user access - The admins can approve, suspend, or delete the users's accounts to ensure only vaild user are active on the platform.
-    2. Moderate services - Admins can review, edit, or remove leagues and any team postings that violate platform rules or containing incorrect information.
-    3. Moderate reviews - The admins can remove inapporopriate, spam, or fake reviews to maintain a safe community for these rec leagues.
-    4. View usage statistics - The admins can view the platform analytics such as the amount of users, leagues that are active, and enagement.
