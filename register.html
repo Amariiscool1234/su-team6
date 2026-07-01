@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>League Finder | Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <div class="shield">
+          <span>LF</span>
+        </div>
+
+        <div class="logo-text">
+          <h1>League Finder</h1>
+          <p>Find. Play. Compete.</p>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="leagues.html">Browse Leagues</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="auth-section">
+    <div class="auth-card">
+      <h2>Create Account</h2>
+      <p>Register to join leagues or create your own.</p>
+
+      <form class="auth-form">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+
+        <select required>
+          <option value="">Select Account Type</option>
+          <option value="player">Player</option>
+          <option value="organizer">League Organizer</option>
+        </select>
+
+        <button type="submit">Register</button>
+      </form>
+
+      <p class="auth-link">
+        Already have an account? <a href="login.html">Login here</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 League Finder. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
