@@ -1,154 +1,189 @@
-Requirements – League Finder
+# Requirements – League Finder
 
-Project Name: League Finder
-Team: Amari Ames - Provider, Desaun Avent - Customer
-Course: CSC 340
-Version: 1.0
-Date: July 2026
+**Project Name:** League Finder \
+**Team:** Amari Ames - Provider, Desaun Avent - Customer \
+**Course:** CSC 340\
+**Version:** 1.0\
+**Date:** 2026-07-01 
 
-1. Overview
+---
 
-Vision. League Finder is built to solve a common problem in recreational sports: players often don’t have a team, and team captains often don’t have enough players. This platform connects both sides by allowing players to find leagues or teams to join, while captains can post listings and manage their rosters.
+## 1. Overview
+**Vision.** League Finder is a local recreational sports platform that helps players find teams, leagues, and substitute opportunities near them, while giving team captains and league organizers an easy way to fill open roster spots. A lot of people want to play rec sports but don't already know a team to join, and captains are constantly short players trying to fill a roster before game day — League Finder connects those two groups directly.
 
-Instead of relying on word-of-mouth or last-minute group chats, League Finder gives users a structured way to find games, join teams, and stay active.
+**Glossary** Terms used in the project
+- **Player / Customer:** A person looking to join a team, league, or sub opportunity.
+- **Provider:** A team captain or league organizer who manages a roster and posts openings.
+- **Profile:** A collection of information about a user, including personal details, location, sport preferences, availability, and skill level.
+- **Service:** A team, league, or open roster/sub listing posted by a provider.
+- **Free Agent:** A customer who signs up without picking one specific team, so they can be matched to whichever team needs a player.
+- **Roster:** The current list of players on a team.
 
-Glossary Terms used in the project
+**Primary Users / Roles.**
+- **Customer** - Find teams, leagues, and sub opportunities that match their sport, location, and skill level.
+- **Provider** — Post listings, fill roster spots, and manage player engagement.
+- **SysAdmin** — Maintain platform quality and security.
 
-Player / Customer: Someone looking to join a team, league, or sub into games
-Provider: A team captain or league organizer who creates listings and manages players
-Free Agent: A player who signs up without a specific team and can be matched where needed
-Roster: The list of players currently on a team
-Listing: A posted league or team opportunity created by a provider
+**Scope (this semester).**
+- User profiles (customers & providers)
+- Search/browse teams, leagues, and open roster or sub spots
+- Requesting to join a team, signing up as a free agent, or offering to sub
+- Provider dashboard with basic roster statistics
+- Reviews and review replies
 
-Primary Users / Roles
+**Out of scope (deferred).**
+- Payment processing / league fees
+- Live in-game score tracking
+- Native mobile app
 
-Customer — Finds and joins leagues, signs up as a sub, and leaves reviews
-Provider — Creates listings, manages roster, and responds to players
-SysAdmin — Maintains the platform and ensures everything runs properly
+> This document is **requirements‑level** and solution‑neutral; design decisions (UI layouts, API endpoints, schemas) are documented separately.
 
-Scope (this semester)
+---
 
-User profiles (customer and provider)
-Searching and browsing leagues
-Requesting to join a team or league
-Basic provider dashboard (roster overview)
-Reviews and responses
+## 2. Functional Requirements (User Stories)
 
-Out of scope (deferred)
+### 2.1 Customer Stories
+- **US-1 - Create and manage customer profile**
 
-Real-time messaging/chat
-Payment processing
-Advanced player statistics tracking
+  _Story:_ As a customer, I want to create a profile with my location, preferred sports, availability, and skill level, so that I get matched with opportunities that actually fit me instead of scrolling through everything.
 
-This document focuses on requirements only. Design details like UI layout and database structure will be handled separately.
+  _Acceptance:_
+```gherkin
+  Scenario: Register with valid credentials
+    Given I am not registered
+    When I provide valid registration details
+    Then I should be successfully registered and logged in
 
-2. Functional Requirements (User Stories)
-2.1 Customer Stories
+  Scenario: Update profile information
+    Given I am logged in as a customer
+    When I edit my location, sport preferences, or skill level and save
+    Then my profile should reflect the updated information
+```
 
-US-1 - Register & create profile
+- **US-2 - Browse available services**
 
-Story: As a customer, I want to create an account so that I can join leagues and teams.
+  _Story:_ As a customer, I want to search teams, leagues, and sub opportunities by sport, location, date, and skill level, so that I only see listings that are actually relevant to me.
 
-Acceptance:
+  _Acceptance:_
+```gherkin
+  Scenario: Browse services by filter
+    Given I am logged in as a customer
+    When I filter by sport, location, date, or skill level
+    Then I should see a list of matching teams, leagues, and sub opportunities
+```
 
-Scenario: Register with valid information
-  Given I am not registered
-  When I enter valid account details
-  Then my account should be created successfully
+- **US-3 - Subscribe to a service**
 
-US-2 - Browse leagues
+  _Story:_ As a customer, I want to request to join a team, sign up as a free agent, or offer to sub for a game, so that I can start playing and stay updated on upcoming games.
 
-Story: As a customer, I want to browse available leagues so that I can find one that fits me.
+  _Acceptance:_
+```gherkin
+  Scenario: Request to join a team
+    Given I am logged in as a customer
+    When I request to join a team or offer to sub for a game
+    Then the provider should be notified of my request
+    And I should receive a confirmation once accepted
 
-Acceptance:
+  Scenario: Receive game reminders
+    Given I have been accepted onto a team
+    When a game is approaching
+    Then I should receive a reminder notification
+```
 
-Scenario: View available leagues
-  Given I am on the browse page
-  When I search or filter leagues
-  Then I should see a list of matching leagues
+- **US-4 - Write a review after playing**
 
-US-3 - Request to join a league
+  _Story:_ As a customer, I want to leave a review after participating in a game or joining a team, so that other players have a better idea of what to expect.
 
-Story: As a customer, I want to request to join a league so that I can participate.
+  _Acceptance:_
+```gherkin
+  Scenario: Write a review after participating
+    Given I have participated in a game or joined a team
+    When I submit a review with a rating and comments
+    Then the review should be saved and visible to other customers
+```
 
-Acceptance:
+### 2.2 Provider Stories
 
-Scenario: Request to join a league
-  Given I am logged in
-  When I select a league and click join
-  Then my request should be sent to the provider
+- **US-5 - Create, update, or remove provider profile**
 
-US-4 - Leave a review
+  _Story:_ As a provider, I want to create, update, and remove my profile — including team info, contact info, sport type, and location — so that my information stays accurate and I can take it down if I stop running the team.
 
-Story: As a customer, I want to leave a review after playing so others can know about the experience.
+  _Acceptance:_
+```gherkin
+  Scenario: Create provider profile
+    Given I do not have a profile
+    When I provide my team/league details and submit the form
+    Then my profile should be created and visible to customers
 
-Acceptance:
+  Scenario: Remove provider profile
+    Given I have an existing provider profile
+    When I choose to delete my profile
+    Then my profile and associated listings should no longer be visible to customers
+```
 
-Scenario: Submit a review
-  Given I have participated in a league
-  When I submit a review
-  Then the review should be saved and visible
-2.2 Provider Stories
+- **US-6 - Create a service listing**
 
-US-5 - Create a listing
+  _Story:_ As a provider, I want to post a new team, league, or open roster listing, so that customers can find it and join.
 
-Story: As a provider, I want to post a league so players can join.
+  _Acceptance:_
+```gherkin
+  Scenario: Create a new listing
+    Given I am logged in as a provider
+    When I enter listing details (sport, location, date, skill level, open spots) and submit
+    Then the listing should be saved and visible to customers browsing services
+```
 
-Acceptance:
+- **US-7 - View customer statistics**
 
-Scenario: Create a new listing
-  Given I am logged in as a provider
-  When I fill out listing details
-  Then the listing should be published
+  _Story:_ As a provider, I want to see how many players have joined, requested to join, or signed up to sub for my teams, so that I know where my roster actually stands.
 
-US-6 - Manage roster
+  _Acceptance:_
+```gherkin
+  Scenario: View roster statistics
+    Given I am logged in as a provider
+    When I access my team dashboard
+    Then I should see the number of joined players, pending requests, and available subs
+```
 
-Story: As a provider, I want to manage my team roster so I can track players.
+- **US-8 - Reply to reviews**
 
-Acceptance:
+  _Story:_ As a provider, I want to respond to player reviews, so that I can address feedback or clear up anything that got miscommunicated.
 
-Scenario: View roster
-  Given I have created a league
-  When I open the dashboard
-  Then I should see a list of players who joined
+  _Acceptance:_
+```gherkin
+  Scenario: Reply to a review
+    Given a customer has left a review on one of my listings
+    When I submit a reply to that review
+    Then my reply should be saved and visible alongside the original review
+```
 
-US-7 - Respond to join requests
+---
 
-Story: As a provider, I want to accept or reject players so I can control my team.
+## 3. Non‑Functional Requirements
+- **Performance:** 95% of search/browse responses should be returned in < 2 seconds under typical load.
+- **Availability/Reliability:** The system should be available 99.5% of the time, with planned maintenance windows communicated in advance.
+- **Security/Privacy:** The system must implement secure authentication and authorization mechanisms. All sensitive data should be encrypted in transit and at rest.
+- **Usability:** New users should be able to complete registration and either browse a team or post a listing within 5 minutes without external assistance.
 
-Acceptance:
+---
 
-Scenario: Respond to a request
-  Given I have pending join requests
-  When I accept or reject a request
-  Then the player should be notified
+## 4. Assumptions, Constraints, and Policies
+- Modern browsers (latest Chrome/Firefox/Edge/Safari); stable connectivity.
+- Course timeline & campus infrastructure constraints apply.
+- Users are assumed to be 18+ or have appropriate guardian consent to participate in local rec leagues.
 
-US-8 - Reply to reviews
+---
 
-Story: As a provider, I want to respond to reviews so I can interact with players.
+## 5. Milestones (course‑aligned)
+- **M1 Requirements** — this file + stories opened as issues.
+- **M2 High‑fidelity prototype** — core customer/provider UI flows fully interactive.
+- **M3 Design** — architecture, schema, API outline.
+- **M4 Backend API** — key endpoints + tests.
+- **M5 Increment** — ≥2 use cases end‑to‑end.
+- **M6 Final** — complete system & documentation.
 
-Acceptance:
+---
 
-Scenario: Reply to a review
-  Given a review is posted
-  When I respond
-  Then my response should be visible under the review
-3. Non-Functional Requirements
-Performance: Pages should load within 2–3 seconds under normal use
-Availability: The system should be accessible at all times except during maintenance
-Security: User accounts must be protected with basic authentication
-Usability: A new user should be able to register and find a league within a few minutes
-4. Assumptions, Constraints, and Policies
-Users will access the app through modern browsers
-The system is built within the constraints of the course timeline
-No real payment or advanced backend features are required
-5. Milestones (course-aligned)
-M1 Requirements — SRS document completed
-M2 Prototype — UI pages created and connected
-M3 Design — system structure planned
-M4 Backend — basic functionality implemented
-M5 Increment — core features working
-M6 Final — full system completed
-6. Change Management
-Changes will be tracked through GitHub commits and pull requests
-Updates to requirements will be reflected in this document when needed
+## 6. Change Management
+- Stories are living artifacts; changes are tracked via repository issues and linked pull requests.
+- Major changes should update this SRS.
