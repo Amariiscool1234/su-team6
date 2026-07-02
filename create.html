@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create League | League Finder</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -34,24 +35,24 @@
 
     <h2>League Information</h2>
 
-    <label>League Name</label>
-    <input type="text" placeholder="Ex: Greensboro Summer Basketball League">
+    <label for="league-name">League Name</label>
+    <input id="league-name" type="text" placeholder="Ex: Greensboro Summer Basketball League" required>
 
-    <label>Sport</label>
-    <select>
-      <option>Select Sport</option>
+    <label for="sport">Sport</label>
+    <select id="sport" required>
+      <option value="">Select Sport</option>
       <option>Basketball</option>
       <option>Flag Football</option>
       <option>Volleyball</option>
       <option>Soccer</option>
     </select>
 
-    <label>Location</label>
-    <input type="text" placeholder="Ex: Greensboro, NC">
+    <label for="location">Location</label>
+    <input id="location" type="text" placeholder="Ex: Greensboro, NC" required>
 
-    <label>Skill Level</label>
-    <select>
-      <option>Select Skill Level</option>
+    <label for="skill-level">Skill Level</label>
+    <select id="skill-level" required>
+      <option value="">Select Skill Level</option>
       <option>Beginner</option>
       <option>Intermediate</option>
       <option>Competitive</option>
@@ -59,31 +60,31 @@
       <option>All Skill Levels</option>
     </select>
 
-    <label>Start Date</label>
-    <input type="date">
+    <label for="start-date">Start Date</label>
+    <input id="start-date" type="date" required>
 
-    <label>End Date</label>
-    <input type="date">
+    <label for="end-date">End Date</label>
+    <input id="end-date" type="date" required>
 
-    <label>Registration Fee</label>
-    <input type="text" placeholder="Ex: $75">
+    <label for="registration-fee">Registration Fee</label>
+    <input id="registration-fee" type="text" placeholder="Ex: $75" required>
 
-    <label>Maximum Players / Teams</label>
-    <input type="number" placeholder="Ex: 24">
+    <label for="max-players">Maximum Players / Teams</label>
+    <input id="max-players" type="number" placeholder="Ex: 24" min="1" required>
 
-    <label>Game Days</label>
-    <input type="text" placeholder="Ex: Saturdays, Wednesday Nights">
+    <label for="game-days">Game Days</label>
+    <input id="game-days" type="text" placeholder="Ex: Saturdays, Wednesday Nights" required>
 
-    <label>League Description</label>
-    <textarea placeholder="Describe the league, rules, age group, and what players should expect."></textarea>
+    <label for="league-description">League Description</label>
+    <textarea id="league-description" placeholder="Describe the league, rules, age group, and what players should expect." required></textarea>
 
-    <label>Organizer Name</label>
-    <input type="text" placeholder="Ex: Jordan Carter">
+    <label for="organizer-name">Organizer Name</label>
+    <input id="organizer-name" type="text" placeholder="Ex: Jordan Carter" required>
 
-    <label>Organizer Email</label>
-    <input type="email" placeholder="Ex: organizer@leaguefinder.com">
+    <label for="organizer-email">Organizer Email</label>
+    <input id="organizer-email" type="email" placeholder="Ex: organizer@leaguefinder.com" required>
 
-    <button type="button">Create League</button>
+    <button type="submit">Create League</button>
 
   </form>
 </section>

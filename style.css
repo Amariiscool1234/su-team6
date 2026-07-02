@@ -251,7 +251,6 @@ footer {
   .search-box {
     flex-direction: column;
   }
-<<<<<< HEAD
 }
 .auth-section {
   min-height: 650px;
@@ -324,8 +323,6 @@ footer {
 
 .auth-link a:hover {
   text-decoration: underline;
-=======
->>>>>>> 61152204facd4e707fb541a0e7a88a80abf8fb10
 }
 .dashboard-header{
     background:#0f172a;
