@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create League | League Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <div class="shield"><span>LF</span></div>
+    <div class="logo-text">
+      <h1>League Finder</h1>
+      <p>Find. Play. Compete.</p>
+    </div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leagues.html">Browse Leagues</a></li>
+    <li><a href="organizer-dashboard.html">Dashboard</a></li>
+    <li><a href="login.html">Logout</a></li>
+  </ul>
+</nav>
+
+<section class="create-hero">
+  <h1>Create a League</h1>
+  <p>Post your league so players can find it, view details, and sign up.</p>
+</section>
+
+<section class="create-section">
+  <form class="create-form">
+
+    <h2>League Information</h2>
+
+    <label>League Name</label>
+    <input type="text" placeholder="Ex: Greensboro Summer Basketball League">
+
+    <label>Sport</label>
+    <select>
+      <option>Select Sport</option>
+      <option>Basketball</option>
+      <option>Flag Football</option>
+      <option>Volleyball</option>
+      <option>Soccer</option>
+    </select>
+
+    <label>Location</label>
+    <input type="text" placeholder="Ex: Greensboro, NC">
+
+    <label>Skill Level</label>
+    <select>
+      <option>Select Skill Level</option>
+      <option>Beginner</option>
+      <option>Intermediate</option>
+      <option>Competitive</option>
+      <option>Recreational</option>
+      <option>All Skill Levels</option>
+    </select>
+
+    <label>Start Date</label>
+    <input type="date">
+
+    <label>End Date</label>
+    <input type="date">
+
+    <label>Registration Fee</label>
+    <input type="text" placeholder="Ex: $75">
+
+    <label>Maximum Players / Teams</label>
+    <input type="number" placeholder="Ex: 24">
+
+    <label>Game Days</label>
+    <input type="text" placeholder="Ex: Saturdays, Wednesday Nights">
+
+    <label>League Description</label>
+    <textarea placeholder="Describe the league, rules, age group, and what players should expect."></textarea>
+
+    <label>Organizer Name</label>
+    <input type="text" placeholder="Ex: Jordan Carter">
+
+    <label>Organizer Email</label>
+    <input type="email" placeholder="Ex: organizer@leaguefinder.com">
+
+    <button type="button">Create League</button>
+
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2026 League Finder. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
