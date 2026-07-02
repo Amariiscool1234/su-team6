@@ -43,9 +43,9 @@
 ## 2. Functional Requirements (User Stories)
 
 ### 2.1 Customer Stories
-- **US-1 - Create and manage customer profile**
+- **US-1 - Create a profile**
 
-  _Story:_ As a customer, I want to create a profile with my location, preferred sports, availability, and skill level, so that I get matched with opportunities that actually fit me instead of scrolling through everything.
+  _Story:_ As a customer, I want to create a profile, so that I can find a local team in my area to play with.
 
   _Acceptance:_
 ```gherkin
@@ -60,9 +60,9 @@
     Then my profile should reflect the updated information
 ```
 
-- **US-2 - Browse available services**
+- **US-2 - Find a league by sport**
 
-  _Story:_ As a customer, I want to search teams, leagues, and sub opportunities by sport, location, date, and skill level, so that I only see listings that are actually relevant to me.
+  _Story:_ As a customer, I want to find a league with my favorite sport of choice, so that I can quickly locate something relevant to me.
 
   _Acceptance:_
 ```gherkin
@@ -72,58 +72,52 @@
     Then I should see a list of matching teams, leagues, and sub opportunities
 ```
 
-- **US-3 - Subscribe to a service**
+- **US-3 - See upcoming matches**
 
-  _Story:_ As a customer, I want to request to join a team, sign up as a free agent, or offer to sub for a game, so that I can start playing and stay updated on upcoming games.
+  _Story:_ As a customer, I want to see upcoming matches, so that I know when to play my match.
 
   _Acceptance:_
 ```gherkin
-  Scenario: Request to join a team
-    Given I am logged in as a customer
-    When I request to join a team or offer to sub for a game
-    Then the provider should be notified of my request
-    And I should receive a confirmation once accepted
+  Scenario: View upcoming matches
+    Given I am logged in as a customer and on a team
+    When I open my schedule
+    Then I should see a list of my upcoming games with date and time
 
   Scenario: Receive game reminders
-    Given I have been accepted onto a team
-    When a game is approaching
+    Given I have an upcoming match
+    When the game is approaching
     Then I should receive a reminder notification
 ```
 
-- **US-4 - Write a review after playing**
+- **US-4 - View league standings**
 
-  _Story:_ As a customer, I want to leave a review after participating in a game or joining a team, so that other players have a better idea of what to expect.
+  _Story:_ As a customer, I want to view the league standings, so that I know what my team's record is.
 
   _Acceptance:_
 ```gherkin
-  Scenario: Write a review after participating
-    Given I have participated in a game or joined a team
-    When I submit a review with a rating and comments
-    Then the review should be saved and visible to other customers
+  Scenario: View standings
+    Given I am logged in as a customer and on a team
+    When I open the league standings page
+    Then I should see my team's wins, losses, and current rank
 ```
 
 ### 2.2 Provider Stories
 
-- **US-5 - Create, update, or remove provider profile**
+- **US-5 - Make roster and schedule updates**
 
-  _Story:_ As a provider, I want to create, update, and remove my profile — including team info, contact info, sport type, and location — so that my information stays accurate and I can take it down if I stop running the team.
+  _Story:_ As a provider, I want to make updates such as team substitutions and game scheduling, so that my roster and schedule stay accurate.
 
   _Acceptance:_
 ```gherkin
-  Scenario: Create provider profile
-    Given I do not have a profile
-    When I provide my team/league details and submit the form
-    Then my profile should be created and visible to customers
-
-  Scenario: Remove provider profile
-    Given I have an existing provider profile
-    When I choose to delete my profile
-    Then my profile and associated listings should no longer be visible to customers
+  Scenario: Update team roster or schedule
+    Given I am logged in as a provider
+    When I make a substitution or update a game's date/time
+    Then the change should be saved and reflected for players on that team
 ```
 
-- **US-6 - Create a service listing**
+- **US-6 - Create a new listing**
 
-  _Story:_ As a provider, I want to post a new team, league, or open roster listing, so that customers can find it and join.
+  _Story:_ As a provider, I want to create new teams, leagues, or open roster listings, so that customers can find and join them.
 
   _Acceptance:_
 ```gherkin
@@ -135,7 +129,7 @@
 
 - **US-7 - View customer statistics**
 
-  _Story:_ As a provider, I want to see how many players have joined, requested to join, or signed up to sub for my teams, so that I know where my roster actually stands.
+  _Story:_ As a provider, I want to view how many players have joined, requested to join, or signed up as substitutes, so that I know where my roster stands.
 
   _Acceptance:_
 ```gherkin
@@ -143,18 +137,7 @@
     Given I am logged in as a provider
     When I access my team dashboard
     Then I should see the number of joined players, pending requests, and available subs
-```
 
-- **US-8 - Reply to reviews**
-
-  _Story:_ As a provider, I want to respond to player reviews, so that I can address feedback or clear up anything that got miscommunicated.
-
-  _Acceptance:_
-```gherkin
-  Scenario: Reply to a review
-    Given a customer has left a review on one of my listings
-    When I submit a reply to that review
-    Then my reply should be saved and visible alongside the original review
 ```
 
 ---
