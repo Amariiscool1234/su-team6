@@ -227,7 +227,6 @@ footer {
   padding: 20px;
 }
 
-/* Mobile friendly */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -252,7 +251,7 @@ footer {
   .search-box {
     flex-direction: column;
   }
-<<<<<<< HEAD
+<<<<<< HEAD
 }
 .auth-section {
   min-height: 650px;
@@ -651,4 +650,72 @@ footer {
   color: #111827;
   font-weight: bold;
   cursor: pointer;
+}
+.profile-header{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.profile-picture{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:#38bdf8;
+    color:white;
+    font-size:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto 20px;
+}
+
+.profile-header h1{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.profile-grid{
+    width:90%;
+    margin:50px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.profile-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 18px rgba(0,0,0,.1);
+}
+
+.profile-card h2{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.profile-card p{
+    margin:10px 0;
+}
+
+.profile-card ul{
+    margin-left:20px;
+}
+
+.profile-card button{
+    width:100%;
+    margin-top:12px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#0d6efd;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.profile-card button:hover{
+    background:#084298;
 }
