@@ -4,8 +4,10 @@ import LeagueFinder.LeagueFinder.entity.league;
 import LeagueFinder.LeagueFinder.service.LeagueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/leagues")
