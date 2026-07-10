@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/leagues")
+@CrossOrigin(origins = "https://amariiscool1234.github.io")
 public class LeagueController {
 
     @Autowired
@@ -34,4 +35,5 @@ public class LeagueController {
         leagueService.deleteLeague(id);
         return "League deleted successfully";
     }
+
 }
