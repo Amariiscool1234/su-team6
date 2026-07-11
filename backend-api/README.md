@@ -195,3 +195,5 @@ Example response:
 # 4 UML Diagram
 
 <img width="1536" height="1024" alt="UML diagram League Finder" src="https://github.com/user-attachments/assets/df0c1a4b-b0e8-45de-80ea-fe538f6fe208" />
+#5 Use Case Model
+<img width="1402" height="1122" alt="Use case model League Finder" src="https://github.com/user-attachments/assets/998727d2-20a4-4526-bd86-99224ac62af3" />
