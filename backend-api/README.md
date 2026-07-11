@@ -1,0 +1,100 @@
+# League Finder Backend API
+
+# 1. Overview 
+
+  The League Finder backend exposes a RESTful API for the League Finder platform.
+
+  The backend is build with Spring Boot, Spring Data JPA, PostgreSQL, and Maven. This application is deployed using Docker and Render. The PostgreSQL database is hosted live on Neon
+
+  The API currently supports the league creation, the updates, retrieval, and the deletion.
+
+
+  # The Deployed Backend:
+  https://league-finder-backendapi.onrender.com/
+
+  # The Frontend Website:
+  https://amariiscool1234.github.io/su-team6/index.html
+
+
+# 2. Used Technologies
+
+
+
+3. API Endpoints
+3.1 League Endpoints
+Get All Leagues
+
+GET /leagues
+
+Retrieves all leagues stored in the database.
+
+Example request:
+
+GET https://league-finder-backendapi.onrender.com/leagues
+
+Example response:
+
+[
+  {
+    "id": 1,
+    "name": "336 Rangerz Updated",
+    "sport": "Soccer",
+    "location": "High Point",
+    "description": "Updated league information"
+  }
+]
+Create a League
+
+POST /leagues
+
+Creates a new league and stores it in the database.
+
+Example request body:
+
+{
+  "name": "Greensboro Basketball League",
+  "sport": "Basketball",
+  "location": "Greensboro",
+  "description": "Competitive basketball league for local players."
+}
+
+Example response:
+
+{
+  "id": 2,
+  "name": "Greensboro Basketball League",
+  "sport": "Basketball",
+  "location": "Greensboro",
+  "description": "Competitive basketball league for local players."
+}
+Update a League
+
+PUT /leagues/{id}
+
+Updates an existing league using its ID.
+
+Example endpoint:
+
+PUT /leagues/1
+
+Example request body:
+
+{
+  "name": "336 Rangerz",
+  "sport": "Soccer",
+  "location": "High Point",
+  "description": "Updated league information"
+}
+Delete a League
+
+DELETE /leagues/{id}
+
+Deletes an existing league using its ID.
+
+Example endpoint:
+
+DELETE /leagues/1
+
+Example response:
+
+League deleted successfully
