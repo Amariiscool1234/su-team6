@@ -98,3 +98,6 @@ DELETE /leagues/1
 Example response:
 
 League deleted successfully
+# 3 UML Diagram
+
+<img width="1536" height="1024" alt="UML diagram League Finder" src="https://github.com/user-attachments/assets/df0c1a4b-b0e8-45de-80ea-fe538f6fe208" />
