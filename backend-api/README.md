@@ -19,6 +19,14 @@
 
 
 # 2. Used Technologies
+* Java
+* SpringBoot
+* Spring Data JPA
+* PostgreSQL
+* Maven
+* Postman
+* Docker
+* Render
 
 
 
@@ -192,6 +200,109 @@ Example response:
   "location": "High Point",
   "favoriteSport": "Soccer"
 }
+
+Retrieve a Provider by ID
+
+GET /providers/{id}
+
+Retrieves a specific provider profile using its ID.
+
+Example request:
+
+GET https://league-finder-backendapi.onrender.com/providers/1
+
+Example response:
+
+{
+  "id": 1,
+  "name": "Amari Ames",
+  "email": "amari@example.com",
+  "accountStatus": "active",
+  "organizationName": "336 Rangerz",
+  "biography": "Local sports league organizer."
+}
+Retrieve a Provider by Email
+
+GET /providers/email/{email}
+
+Retrieves a provider profile using its email address.
+
+Example request:
+
+GET https://league-finder-backendapi.onrender.com/providers/email/amari@example.com
+Create a Provider
+
+POST /providers
+
+Creates a new provider profile and stores it in the database.
+
+Example request body:
+
+{
+  "name": "Amari Ames",
+  "email": "amari@example.com",
+  "password": "password123",
+  "accountStatus": "active",
+  "organizationName": "336 Rangerz",
+  "biography": "Local sports league organizer."
+}
+
+Example response:
+
+{
+  "id": 1,
+  "name": "Amari Ames",
+  "email": "amari@example.com",
+  "password": "password123",
+  "accountStatus": "active",
+  "organizationName": "336 Rangerz",
+  "biography": "Local sports league organizer."
+}
+Update a Provider
+
+PUT /providers/{id}
+
+Updates an existing provider profile using its ID.
+
+Example endpoint:
+
+PUT /providers/1
+
+Example request body:
+
+{
+  "name": "Amari Ames",
+  "email": "amari@example.com",
+  "password": "newpassword123",
+  "accountStatus": "active",
+  "organizationName": "336 Rangerz Updated",
+  "biography": "Organizer of local soccer and basketball leagues."
+}
+
+Example response:
+
+{
+  "id": 1,
+  "name": "Amari Ames",
+  "email": "amari@example.com",
+  "password": "newpassword123",
+  "accountStatus": "active",
+  "organizationName": "336 Rangerz Updated",
+  "biography": "Organizer of local soccer and basketball leagues."
+}
+Delete a Provider
+
+DELETE /providers/{id}
+
+Deletes an existing provider profile using its ID.
+
+Example endpoint:
+
+DELETE /providers/1
+
+Example response:
+
+Provider deleted successfully
 # 4 UML Diagram
 
 <img width="1536" height="1024" alt="UML diagram League Finder" src="https://github.com/user-attachments/assets/df0c1a4b-b0e8-45de-80ea-fe538f6fe208" />
