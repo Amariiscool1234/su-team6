@@ -100,6 +100,98 @@ DELETE /leagues/1
 Example response:
 
 League deleted successfully
+
+Customer Endpoints
+Retrieve All Customers
+
+GET /customers
+
+Retrieves all customer profiles stored in the database.
+
+Example request:
+
+GET https://league-finder-backendapi.onrender.com/customers
+
+Example response:
+
+{
+  "id": 1,
+  "name": "De'Saun Avent",
+  "email": "desaun@example.com",
+  "location": "Greensboro",
+  "favoriteSport": "Basketball"
+}
+Retrieve a Customer by ID
+
+GET /customers/{id}
+
+Retrieves a specific customer profile using its ID.
+
+Example request:
+
+GET https://league-finder-backendapi.onrender.com/customers/1
+
+Example response:
+
+{
+  "id": 1,
+  "name": "De'Saun Avent",
+  "email": "desaun@example.com",
+  "location": "Greensboro",
+  "favoriteSport": "Basketball"
+}
+Create a Customer
+
+POST /customers
+
+Creates a new customer profile and stores it in the database.
+
+Example request body:
+
+{
+  "name": "De'Saun Avent",
+  "email": "desaun@example.com",
+  "location": "Greensboro",
+  "favoriteSport": "Basketball"
+}
+
+Example response:
+
+{
+  "id": 1,
+  "name": "De'Saun Avent",
+  "email": "desaun@example.com",
+  "location": "Greensboro",
+  "favoriteSport": "Basketball"
+}
+Update a Customer
+
+PUT /customers/{id}
+
+Updates an existing customer profile using its ID.
+
+Example endpoint:
+
+PUT /customers/1
+
+Example request body:
+
+{
+  "name": "De'Saun Avent",
+  "email": "desaun@example.com",
+  "location": "High Point",
+  "favoriteSport": "Soccer"
+}
+
+Example response:
+
+{
+  "id": 1,
+  "name": "De'Saun Avent",
+  "email": "desaun@example.com",
+  "location": "High Point",
+  "favoriteSport": "Soccer"
+}
 # 4 UML Diagram
 
 <img width="1536" height="1024" alt="UML diagram League Finder" src="https://github.com/user-attachments/assets/df0c1a4b-b0e8-45de-80ea-fe538f6fe208" />
