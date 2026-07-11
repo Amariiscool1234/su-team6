@@ -203,6 +203,7 @@ Example response:
 
 Retrieve a Provider by ID
 
+3.3 Getting Provider endpoints
 GET /providers/{id}
 
 Retrieves a specific provider profile using its ID.
