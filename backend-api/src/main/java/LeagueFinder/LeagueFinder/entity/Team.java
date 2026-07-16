@@ -1,14 +1,19 @@
 package LeagueFinder.LeagueFinder.entity;
-
+import LeagueFinder.LeagueFinder.entity.Provider;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "teams")
+
 public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @ManyToOne
+    @JoinColumn(name = "provider_id", nullable = false)
+    private Provider provider;
 
     @Column(nullable = false)
     private String name;
@@ -70,5 +75,11 @@ public class Team {
 
     public void setLeague(league league) {
         this.league = league;
+    }
+    public Provider getProvider(){
+        return provider;
+    }
+    public void setProvider(Provider provider){
+        this.provider = provider;
     }
 }

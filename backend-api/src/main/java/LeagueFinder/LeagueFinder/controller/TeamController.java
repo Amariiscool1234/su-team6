@@ -24,6 +24,10 @@ public class TeamController {
     public List<Team> getAllTeams() {
         return teamService.getAllTeams();
     }
+    @GetMapping("/provider/{providerId}")
+    public List<Team> getTeamsByProvider(
+        @PathVariable Long providerId) {return teamService.getTeamsByProvider(providerId);  
+}
 
     @GetMapping("/{id}")
     public ResponseEntity<Team> getTeamById(@PathVariable Long id) {
@@ -37,10 +41,10 @@ public class TeamController {
         return teamService.getTeamsByLeague(leagueId);
     }
 
-    @PostMapping
-    public ResponseEntity<?> createTeam(@RequestBody TeamRequest request) {
+    @PostMapping("/provider/{providerId}")
+    public ResponseEntity<?> createTeam(@RequestBody TeamRequest request, @PathVariable Long providerId) {
         try {
-            Team team = teamService.createTeam(request);
+            Team team = teamService.createTeam(request, providerId);
             return ResponseEntity.status(HttpStatus.CREATED).body(team);
         } catch (RuntimeException exception) {
             return ResponseEntity.badRequest().body(exception.getMessage());

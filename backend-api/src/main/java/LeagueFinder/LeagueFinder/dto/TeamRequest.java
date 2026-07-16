@@ -7,6 +7,7 @@ public class TeamRequest {
     private String skillLevel;
     private Integer maxPlayers;
     private Long leagueId;
+    private Long providerId;
 
     public TeamRequest() {
     }
@@ -49,5 +50,11 @@ public class TeamRequest {
 
     public void setLeagueId(Long leagueId) {
         this.leagueId = leagueId;
+    }
+    public Long getProviderId(){
+        return providerId;
+    }
+    public void setProviderId(Long providerId){
+        this.providerId = providerId;
     }
 }

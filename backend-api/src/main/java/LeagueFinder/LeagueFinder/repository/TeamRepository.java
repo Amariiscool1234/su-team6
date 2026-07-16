@@ -12,4 +12,6 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
     List<Team> findBySportIgnoreCase(String sport);
 
     List<Team> findByNameContainingIgnoreCase(String name);
+
+    List<Team> findByProviderId(Long providerId);
 }
