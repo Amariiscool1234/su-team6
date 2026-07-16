@@ -20,5 +20,5 @@ document.getElementById("team-prototype-form").addEventListener("submit", (event
     event.target.reset();
 
     document.getElementById("team-prototype-message").textContent =
-        "Team added to this prototype. Database persistence is available in the Spring Boot version.";
+        "Team added successfully.";
 });
