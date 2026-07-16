@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Profile | League Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <div class="shield"><span>LF</span></div>
+        <div class="logo-text">
+            <h1>League Finder</h1>
+            <p>Find. Play. Compete.</p>
+        </div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="organizer-dashboard.html">Dashboard</a></li>
+        <li><a href="provider-profile.html">Provider Profile</a></li>
+        <li><a href="manage-teams.html">Manage Teams</a></li>
+    </ul>
+</nav>
+
+<section class="profile-header">
+    <div class="profile-picture">AA</div>
+    <h1>Amari Ames</h1>
+    <p>League Provider • Greensboro, NC</p>
+</section>
+
+<section class="profile-grid">
+    <div class="profile-card">
+        <h2>Provider Information</h2>
+        <p><strong>Name:</strong> Amari Ames</p>
+        <p><strong>Email:</strong> amari@example.com</p>
+        <p><strong>Phone:</strong> (336) 555-0147</p>
+        <p><strong>Organization:</strong> Gate City Sports</p>
+        <p><strong>Sport:</strong> Basketball</p>
+        <p><strong>Location:</strong> Greensboro, NC</p>
+    </div>
+
+    <div class="profile-card">
+        <h2>Update Provider Profile</h2>
+        <form id="provider-prototype-form" class="provider-form">
+            <label for="provider-name">Name</label>
+            <input id="provider-name" value="Amari Ames" required>
+
+            <label for="provider-email">Email</label>
+            <input id="provider-email" type="email" value="amari@example.com" required>
+
+            <label for="provider-organization">Organization</label>
+            <input id="provider-organization" value="Gate City Sports" required>
+
+            <label for="provider-sport">Sport</label>
+            <input id="provider-sport" value="Basketball" required>
+
+            <label for="provider-location">Location</label>
+            <input id="provider-location" value="Greensboro, NC" required>
+
+            <button type="submit">Update Profile</button>
+            <p id="provider-prototype-message" class="prototype-message"></p>
+        </form>
+    </div>
+
+    <div class="profile-card">
+        <h2>Full-Stack Version</h2>
+        <p>This public page is the UI prototype.</p>
+        <p>The Spring Boot version uses fetch(), the Provider API, and PostgreSQL for persistence.</p>
+    </div>
+</section>
+
+<footer><p>&copy; 2026 League Finder. All rights reserved.</p></footer>
+<script src="provider-profile-docs.js"></script>
+</body>
+</html>
