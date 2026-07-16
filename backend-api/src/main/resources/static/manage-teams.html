@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Teams | League Finder</title>
+    <link rel="stylesheet" href="milestone.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <div class="shield">LF</div>
+        <div><h1>League Finder</h1><p>Find. Play. Compete.</p></div>
+    </div>
+    <div class="nav-links">
+        <a href="provider-profile.html">Provider Profile</a>
+        <a href="manage-teams.html">Manage Teams</a>
+    </div>
+</nav>
+<main>
+    <section class="profile-header">
+        <h1>Manage Teams</h1>
+        <p>Create, update, and remove teams owned by your provider profile.</p>
+    </section>
+    <section class="profile-grid">
+        <article class="profile-card form-card">
+            <h2 id="team-form-title">Create Team</h2>
+            <form id="team-form">
+                <input id="team-id" type="hidden">
+                <label for="team-name">Team Name</label>
+                <input id="team-name" required>
+                <label for="team-sport">Sport</label>
+                <input id="team-sport" required>
+                <label for="skill-level">Skill Level</label>
+                <input id="skill-level" required>
+                <label for="max-players">Maximum Players</label>
+                <input id="max-players" type="number" min="1" required>
+                <label for="league-id">League</label>
+                <select id="league-id" required></select>
+                <button type="submit">Save Team</button>
+                <button type="button" id="cancel-edit-button" class="secondary-button" hidden>Cancel Edit</button>
+                <p id="team-message" class="message" aria-live="polite"></p>
+            </form>
+        </article>
+        <article class="profile-card">
+            <h2>Your Teams</h2>
+            <div id="team-list"></div>
+        </article>
+    </section>
+</main>
+<script src="manage-teams.js"></script>
+</body>
+</html>

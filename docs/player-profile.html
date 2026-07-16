@@ -104,15 +104,82 @@
     <div class="profile-card">
         <h2>Account Settings</h2>
 
-        <button>Change Password</button>
+        <button type="button" id="change-password-button">Change Password</button>
 
-        <button>Notification Settings</button>
+        <button type="button" id="notification-settings-button">Notification Settings</button>
 
-        <button>Delete Account</button>
+        <button type="button" id="delete-account-button">Delete Account</button>
 
     </div>
 
 </section>
+
+<dialog id="password-dialog" class="settings-dialog">
+    <form id="password-form">
+        <h2>Change Password</h2>
+
+        <label for="current-password">Current Password</label>
+        <input type="password" id="current-password" required>
+
+        <label for="new-password">New Password</label>
+        <input type="password" id="new-password" minlength="8" required>
+
+        <label for="confirm-password">Confirm New Password</label>
+        <input type="password" id="confirm-password" minlength="8" required>
+
+        <p id="password-message" class="settings-message" aria-live="polite"></p>
+
+        <div class="dialog-actions">
+            <button type="button" data-close-dialog="password-dialog">Cancel</button>
+            <button type="submit">Save Password</button>
+        </div>
+    </form>
+</dialog>
+
+<dialog id="notification-dialog" class="settings-dialog">
+    <form id="notification-form">
+        <h2>Notification Settings</h2>
+
+        <label class="checkbox-setting">
+            <input type="checkbox" id="email-notifications">
+            Email notifications
+        </label>
+
+        <label class="checkbox-setting">
+            <input type="checkbox" id="game-reminders">
+            Upcoming game reminders
+        </label>
+
+        <label class="checkbox-setting">
+            <input type="checkbox" id="league-updates">
+            League updates
+        </label>
+
+        <p id="notification-message" class="settings-message" aria-live="polite"></p>
+
+        <div class="dialog-actions">
+            <button type="button" data-close-dialog="notification-dialog">Cancel</button>
+            <button type="submit">Save Settings</button>
+        </div>
+    </form>
+</dialog>
+
+<dialog id="delete-dialog" class="settings-dialog">
+    <form id="delete-form">
+        <h2>Delete Account</h2>
+        <p>This removes the profile information saved by this prototype from this browser.</p>
+
+        <label for="delete-confirmation">Type DELETE to confirm</label>
+        <input type="text" id="delete-confirmation" autocomplete="off" required>
+
+        <p id="delete-message" class="settings-message" aria-live="polite"></p>
+
+        <div class="dialog-actions">
+            <button type="button" data-close-dialog="delete-dialog">Cancel</button>
+            <button type="submit" class="danger-button">Delete Account</button>
+        </div>
+    </form>
+</dialog>
 
 <footer>
 
@@ -120,5 +187,6 @@
 
 </footer>
 
+<script src="player-profile.js"></script>
 </body>
 </html>
