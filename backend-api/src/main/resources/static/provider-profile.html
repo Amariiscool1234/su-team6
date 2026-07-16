@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Profile | League Finder</title>
+    <link rel="stylesheet" href="milestone.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <div class="shield">LF</div>
+        <div><h1>League Finder</h1><p>Find. Play. Compete.</p></div>
+    </div>
+    <div class="nav-links">
+        <a href="provider-profile.html">Provider Profile</a>
+        <a href="manage-teams.html">Manage Teams</a>
+    </div>
+</nav>
+
+<main>
+    <section class="profile-header">
+        <div class="profile-picture" id="provider-initials">LF</div>
+        <h1 id="provider-name">Create Provider Profile</h1>
+        <p id="provider-summary">Add your organization and sport.</p>
+    </section>
+
+    <section class="profile-grid">
+        <article class="profile-card profile-details">
+            <h2>Provider Information</h2>
+            <p><strong>Name:</strong> <span id="display-name">Not set</span></p>
+            <p><strong>Email:</strong> <span id="display-email">Not set</span></p>
+            <p><strong>Phone:</strong> <span id="display-phone">Not set</span></p>
+            <p><strong>Organization:</strong> <span id="display-organization">Not set</span></p>
+            <p><strong>Sport:</strong> <span id="display-sport">Not set</span></p>
+            <p><strong>Location:</strong> <span id="display-location">Not set</span></p>
+        </article>
+
+        <article class="profile-card form-card">
+            <h2 id="provider-form-title">Create Provider Profile</h2>
+            <form id="provider-form">
+                <label for="name">Name</label>
+                <input id="name" name="name" required>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required>
+                <label for="phoneNumber">Phone Number</label>
+                <input id="phoneNumber" name="phoneNumber" required>
+                <label for="organizationName">Organization Name</label>
+                <input id="organizationName" name="organizationName" required>
+                <label for="sportType">Sport Type</label>
+                <input id="sportType" name="sportType" required>
+                <label for="location">Location</label>
+                <input id="location" name="location" required>
+                <button id="provider-save-button" type="submit">Create Profile</button>
+                <p id="provider-message" class="message" aria-live="polite"></p>
+            </form>
+        </article>
+    </section>
+</main>
+<script src="provider-profile.js"></script>
+</body>
+</html>

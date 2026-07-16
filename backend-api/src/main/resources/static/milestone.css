@@ -1,7 +1,7 @@
 :root {
     font-family: Arial, sans-serif;
-    color: #172033;
-    background: #eef2f7;
+    color: #222;
+    background: #f5f7fa;
 }
 
 * {
@@ -10,26 +10,34 @@
 
 body {
     margin: 0;
+    min-height: 100vh;
+    background: #f5f7fa;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px max(24px, calc((100% - 1100px) / 2));
-    background: #071c35;
+    padding: 20px 8%;
+    background: #111827;
+    color: white;
 }
 
 .navbar a {
     color: white;
-    margin-left: 20px;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+    color: #38bdf8;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
     color: white;
 }
 
@@ -39,78 +47,109 @@ body {
 }
 
 .logo h1 {
-    font-size: 1.25rem;
+    font-size: 30px;
+    line-height: 1;
 }
 
 .logo p {
-    color: #b8c7da;
-    font-size: 0.8rem;
+    margin-top: 4px;
+    color: #b9d8ff;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .shield {
-    display: grid;
-    width: 48px;
-    height: 48px;
-    place-items: center;
-    border-radius: 12px 12px 18px 18px;
-    background: #f0a51a;
-    color: #071c35;
-    font-weight: 900;
+    display: flex;
+    width: 65px;
+    height: 75px;
+    align-items: center;
+    justify-content: center;
+    background: #0d6efd;
+    clip-path: polygon(50% 0%, 100% 18%, 100% 65%, 50% 100%, 0% 65%, 0% 18%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
 }
 
 main {
-    width: min(92%, 1100px);
-    margin: 36px auto;
+    width: 100%;
+    margin: 0;
 }
 
 .profile-header {
-    padding: 38px 24px;
-    border-radius: 14px;
+    padding: 60px 20px;
     color: white;
-    background: linear-gradient(135deg, #102f55, #0a1d35);
+    background:
+        linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+        url("https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1600&q=80");
+    background-position: center;
+    background-size: cover;
     text-align: center;
 }
 
 .profile-picture {
-    display: grid;
-    width: 92px;
-    height: 92px;
-    margin: 0 auto 16px;
-    place-items: center;
-    border: 4px solid #f0a51a;
+    display: flex;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid white;
     border-radius: 50%;
-    background: white;
-    color: #102f55;
-    font-size: 1.8rem;
+    background: #38bdf8;
+    color: white;
+    font-size: 42px;
     font-weight: bold;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
 }
 
-.profile-header h1,
+.profile-header h1 {
+    margin: 0 0 10px;
+    font-size: 40px;
+}
+
 .profile-header p {
-    margin: 6px 0;
+    margin: 0;
+    color: #dbeafe;
+    font-size: 18px;
 }
 
 .profile-grid {
     display: grid;
+    width: 90%;
+    max-width: 1100px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-    margin-top: 24px;
+    gap: 25px;
+    margin: 50px auto;
 }
 
 .profile-card {
-    padding: 28px;
-    border-radius: 12px;
+    padding: 25px;
+    border-radius: 15px;
     background: white;
-    box-shadow: 0 8px 24px rgba(16, 35, 63, 0.08);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
 }
 
 .profile-card h2 {
     margin-top: 0;
-    color: #102f55;
+    margin-bottom: 18px;
+    color: #0d6efd;
 }
 
 .profile-details {
-    border-top: 5px solid #f0a51a;
+    border-top: 5px solid #38bdf8;
+}
+
+.profile-details p {
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .form-card {
@@ -119,11 +158,12 @@ main {
 
 form {
     display: grid;
-    gap: 10px;
+    gap: 8px;
 }
 
 label {
-    margin-top: 8px;
+    margin-top: 10px;
+    color: #111827;
     font-weight: bold;
 }
 
@@ -132,51 +172,116 @@ select,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #b9c3d2;
-    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
     font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #0d6efd;
+    outline: 3px solid rgba(13, 110, 253, 0.14);
 }
 
 button {
     margin-top: 14px;
-    padding: 12px 18px;
+    padding: 12px 20px;
     border: 0;
-    border-radius: 6px;
+    border-radius: 8px;
     color: white;
-    background: #ef9f16;
-    color: #071c35;
+    background: #0d6efd;
     font-weight: bold;
     cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #084298;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.secondary-button {
+    border: 1px solid #cbd5e1;
+    background: white;
+    color: #111827;
+}
+
+.secondary-button:hover {
+    background: #e0f2fe;
+}
+
+.danger-button {
+    margin-left: 8px;
+    background: #dc2626;
+    color: white;
+}
+
+.danger-button:hover {
+    background: #991b1b;
+}
+
+.team-item {
+    margin-bottom: 14px;
+    padding: 18px;
+    border: 1px solid #dbe3ec;
+    border-left: 5px solid #38bdf8;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.team-item h3 {
+    margin: 0 0 8px;
+    color: #111827;
+}
+
+.team-item p {
+    margin: 0 0 10px;
+    color: #475569;
+}
+
+.team-item button {
+    width: auto;
+    margin-top: 4px;
 }
 
 .message {
     min-height: 22px;
     margin-bottom: 0;
+    font-weight: bold;
 }
 
 .success {
-    color: #087a39;
+    color: #15803d;
 }
 
 .error {
-    color: #b42318;
+    color: #b91c1c;
 }
 
 @media (max-width: 720px) {
-    .navbar,
-    .profile-grid {
-        display: block;
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
     }
 
     .nav-links {
-        margin-top: 14px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
     }
 
-    .navbar a {
-        margin: 0 16px 0 0;
+    .profile-grid {
+        grid-template-columns: 1fr;
     }
 
-    .profile-card {
-        margin-bottom: 18px;
+    .profile-header h1 {
+        font-size: 32px;
     }
 }
