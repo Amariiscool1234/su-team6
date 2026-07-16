@@ -1,16 +1,16 @@
 package LeagueFinder.LeagueFinder.entity;
-import LeagueFinder.LeagueFinder.entity.Provider;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "teams")
-
 public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @ManyToOne
     @JoinColumn(name = "provider_id", nullable = false)
     private Provider provider;
@@ -35,6 +35,14 @@ public class Team {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Provider getProvider() {
+        return provider;
+    }
+
+    public void setProvider(Provider provider) {
+        this.provider = provider;
     }
 
     public String getName() {
@@ -75,11 +83,5 @@ public class Team {
 
     public void setLeague(league league) {
         this.league = league;
-    }
-    public Provider getProvider(){
-        return provider;
-    }
-    public void setProvider(Provider provider){
-        this.provider = provider;
     }
 }
