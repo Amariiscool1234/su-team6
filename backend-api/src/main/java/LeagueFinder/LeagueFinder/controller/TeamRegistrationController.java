@@ -50,6 +50,18 @@ public class TeamRegistrationController {
     public List<TeamRegistration> getByTeam(@PathVariable Long teamId) {
         return registrationService.getRegistrationsByTeam(teamId);
     }
+    @GetMapping("/team/{teamId}/statistics")
+public ResponseEntity<?> getTeamStatistics(
+        @PathVariable Long teamId
+) {
+    try {
+        return ResponseEntity.ok(
+                registrationService.getTeamStatistics(teamId)
+        );
+    } catch (RuntimeException exception) {
+        return ResponseEntity.notFound().build();
+    }
+}
 
     @PostMapping
     public ResponseEntity<?> registerForTeam(

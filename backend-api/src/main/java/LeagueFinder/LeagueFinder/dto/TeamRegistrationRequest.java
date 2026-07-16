@@ -4,7 +4,7 @@ public class TeamRegistrationRequest {
 
     private Long customerId;
     private Long teamId;
-
+    private String registrationType;
     public TeamRegistrationRequest() {
     }
 
@@ -22,5 +22,12 @@ public class TeamRegistrationRequest {
 
     public void setTeamId(Long teamId) {
         this.teamId = teamId;
+    }
+    public String getRegistrationType() {
+    return registrationType;
+    }
+
+    public void setRegistrationType(String registrationType) {
+    this.registrationType = registrationType;
     }
 }

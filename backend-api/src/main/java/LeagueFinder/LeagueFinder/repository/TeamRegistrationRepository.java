@@ -21,4 +21,5 @@ public interface TeamRegistrationRepository
             Long teamId,
             String status
     );
+    long countByTeamId(Long teamId);
 }

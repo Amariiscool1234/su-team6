@@ -1,6 +1,7 @@
 package LeagueFinder.LeagueFinder.service;
 
 import LeagueFinder.LeagueFinder.dto.TeamRegistrationRequest;
+import LeagueFinder.LeagueFinder.dto.TeamStatisticsResponse;
 import LeagueFinder.LeagueFinder.entity.Customer;
 import LeagueFinder.LeagueFinder.entity.Team;
 import LeagueFinder.LeagueFinder.entity.TeamRegistration;
@@ -8,7 +9,7 @@ import LeagueFinder.LeagueFinder.repository.CustomerRepository;
 import LeagueFinder.LeagueFinder.repository.TeamRegistrationRepository;
 import LeagueFinder.LeagueFinder.repository.TeamRepository;
 import org.springframework.stereotype.Service;
-
+import LeagueFinder.LeagueFinder.dto.TeamStatisticsResponse;
 import java.util.List;
 import java.util.Set;
 
@@ -51,10 +52,10 @@ public class TeamRegistrationService {
 
     public TeamRegistration registerForTeam(TeamRegistrationRequest request) {
         Customer customer = customerRepository.findById(request.getCustomerId())
-                .orElseThrow(() -> new RuntimeException("Customer not found"));
+                .orElseThrow(() ->  new RuntimeException("Customer not found"));
 
         Team team = teamRepository.findById(request.getTeamId())
-                .orElseThrow(() -> new RuntimeException("Team not found"));
+                .orElseThrow(()  -> new RuntimeException("Team not found"));
 
         boolean alreadyRegistered =
                 registrationRepository.existsByCustomerIdAndTeamId(
@@ -128,4 +129,32 @@ public class TeamRegistrationService {
 
         registrationRepository.deleteById(id);
     }
+    public TeamStatisticsResponse getTeamStatistics(Long teamId) {
+    Team team = teamRepository.findById(teamId)
+            .orElseThrow(() -> new RuntimeException("Team not found"));
+
+    long total = registrationRepository.countByTeamId(teamId);
+
+    long pending = registrationRepository
+            .countByTeamIdAndStatus(teamId, "PENDING");
+
+    long approved = registrationRepository
+            .countByTeamIdAndStatus(teamId, "APPROVED");
+
+    long rejected = registrationRepository
+            .countByTeamIdAndStatus(teamId, "REJECTED");
+
+    long waitlisted = registrationRepository
+            .countByTeamIdAndStatus(teamId, "WAITLISTED");
+
+    return new TeamStatisticsResponse(
+            team.getId(),
+            team.getName(),
+            total,
+            pending,
+            approved,
+            rejected,
+            waitlisted
+    );
+}
 }

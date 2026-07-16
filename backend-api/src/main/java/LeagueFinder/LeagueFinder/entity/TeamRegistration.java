@@ -30,6 +30,8 @@ public class TeamRegistration {
 
     private LocalDateTime registrationDate;
 
+    @Column(nullable = false)
+    private String registrationType;
     public TeamRegistration() {
     }
 
@@ -82,5 +84,12 @@ public class TeamRegistration {
 
     public void setRegistrationDate(LocalDateTime registrationDate) {
         this.registrationDate = registrationDate;
+    }
+    public String getRegistrationType() {
+    return registrationType;
+    }
+
+    public void setRegistrationType(String registrationType) {
+    this.registrationType = registrationType;
     }
 }
