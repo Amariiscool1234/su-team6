@@ -1468,3 +1468,71 @@ footer {
         font-size: 34px;
     }
 }
+
+.settings-dialog {
+    width: min(92%, 480px);
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.settings-dialog::backdrop {
+    background: rgba(4, 20, 39, 0.72);
+}
+
+.settings-dialog form {
+    display: grid;
+    gap: 12px;
+    padding: 28px;
+}
+
+.settings-dialog h2,
+.settings-dialog p {
+    margin-top: 0;
+}
+
+.settings-dialog label {
+    font-weight: 700;
+}
+
+.settings-dialog input[type="password"],
+.settings-dialog input[type="text"] {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #b9c3cf;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.checkbox-setting {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.settings-message {
+    min-height: 22px;
+    margin-bottom: 0;
+}
+
+.settings-success {
+    color: #137333;
+}
+
+.settings-error {
+    color: #b3261e;
+}
+
+.profile-card .danger-button,
+.settings-dialog .danger-button {
+    background: #b3261e;
+}
