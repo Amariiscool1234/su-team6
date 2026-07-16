@@ -1,95 +1,50 @@
 package LeagueFinder.LeagueFinder.controller;
 
 import LeagueFinder.LeagueFinder.entity.Customer;
-import LeagueFinder.LeagueFinder.repository.CustomerRepository;
+import LeagueFinder.LeagueFinder.service.CustomerService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/customers")
 @CrossOrigin(origins = "*")
 public class CustomerController {
 
-    private final CustomerRepository customerRepository;
+    @Autowired
+    private CustomerService customerService;
 
-    public CustomerController(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
-
-    // GET /customers
-    // Retrieves all customers
+    // GET all customers
     @GetMapping
     public List<Customer> getAllCustomers() {
-        return customerRepository.findAll();
+        return customerService.getAllCustomers();
     }
 
-    // GET /customers/{id}
-    // Retrieves one customer by ID
-    @GetMapping("/{id}")
-    public ResponseEntity<Customer> getCustomerById(
-            @PathVariable Long id
-    ) {
-        Optional<Customer> customer = customerRepository.findById(id);
-
-        if (customer.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok(customer.get());
+    // GET customer by ID
+    @GetMapping("/{customerId}")
+    public Customer getCustomerById(@PathVariable Long customerId) {
+        return customerService.getCustomerById(customerId);
     }
 
-    // POST /customers
-    // Creates a new customer profile
+    // POST create a new customer
     @PostMapping
-    public ResponseEntity<Customer> createCustomer(
-            @RequestBody Customer customer
-    ) {
-        customer.setId(null);
-
-        Customer savedCustomer = customerRepository.save(customer);
-
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(savedCustomer);
+    public Customer createCustomer(@RequestBody Customer customer) {
+        return customerService.createCustomer(customer);
     }
 
-    // PUT /customers/{id}
-    // Updates an existing customer profile
-    @PutMapping("/{id}")
-    public ResponseEntity<Customer> updateCustomer(
-            @PathVariable Long id,
-            @RequestBody Customer updatedCustomer
-    ) {
-        Optional<Customer> existingCustomer =
-                customerRepository.findById(id);
+    // PUT update an existing customer
+    @PutMapping("/{customerId}")
+    public Customer updateCustomer(@PathVariable Long customerId,
+                                   @RequestBody Customer customer) {
+        return customerService.updateCustomer(customerId, customer);
+    }
 
-        if (existingCustomer.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-
-        Customer customer = existingCustomer.get();
-
-        customer.setName(updatedCustomer.getName());
-        customer.setEmail(updatedCustomer.getEmail());
-        customer.setLocation(updatedCustomer.getLocation());
-        customer.setFavoriteSport(
-                updatedCustomer.getFavoriteSport()
-        );
-
-        Customer savedCustomer = customerRepository.save(customer);
-
-        return ResponseEntity.ok(savedCustomer);
+    // DELETE customer
+    @DeleteMapping("/{customerId}")
+    public String deleteCustomer(@PathVariable Long customerId) {
+        customerService.deleteCustomer(customerId);
+        return "Customer deleted successfully.";
     }
 }
