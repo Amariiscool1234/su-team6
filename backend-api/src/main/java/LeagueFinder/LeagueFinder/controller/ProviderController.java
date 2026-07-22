@@ -24,7 +24,7 @@ public class ProviderController {
         return providerService.getAllProviders();
     }
 
-    @GetMapping("/providers/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> getProviderById(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(
@@ -50,7 +50,7 @@ public class ProviderController {
     }
      
 
-    @PutMapping("/providers/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> updateProvider(
             @PathVariable Long id,
             @RequestBody Provider provider
@@ -66,7 +66,7 @@ public class ProviderController {
         }
     }
 
-    @DeleteMapping("/providers/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProvider(@PathVariable Long id) {
         try {
             providerService.deleteProvider(id);

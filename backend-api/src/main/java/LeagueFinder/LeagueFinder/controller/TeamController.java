@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/teams")
@@ -40,6 +42,24 @@ public class TeamController {
     public List<Team> getTeamsByLeague(@PathVariable Long leagueId) {
         return teamService.getTeamsByLeague(leagueId);
     }
+    @GetMapping("/records")
+    public List<Map<String, Object>> getTeamRecords() {
+    return teamService.getAllTeams()
+            .stream()
+            .map(team -> {
+                Map<String, Object> record = new HashMap<>();
+
+                record.put("id", team.getId());
+                record.put("name", team.getName());
+                record.put("sport", team.getSport());
+                record.put("wins", team.getWins());
+                record.put("losses", team.getLosses());
+                record.put("ties", team.getTies());
+
+                return record;
+            })
+            .toList();
+}
 
     @PostMapping("/provider/{providerId}")
     public ResponseEntity<?> createTeam(@RequestBody TeamRequest request, @PathVariable Long providerId) {
@@ -62,6 +82,43 @@ public class TeamController {
             return ResponseEntity.badRequest().body(exception.getMessage());
         }
     }
+    @PutMapping("/{id}/record")
+public ResponseEntity<?> updateTeamRecord(
+        @PathVariable Long id,
+        @RequestBody Team recordRequest) {
+
+    try {
+        Team team = teamService.getTeamById(id)
+                .orElseThrow(() -> new RuntimeException("Team not found"));
+
+        if (recordRequest.getWins() < 0
+                || recordRequest.getLosses() < 0
+                || recordRequest.getTies() < 0) {
+
+            return ResponseEntity.badRequest()
+                    .body("Wins, losses, and ties are required.");
+        }
+
+        if (recordRequest.getWins() < 0
+                || recordRequest.getLosses() < 0
+                || recordRequest.getTies() < 0) {
+
+            return ResponseEntity.badRequest()
+                    .body("Team records cannot be negative.");
+        }
+
+        team.setWins(recordRequest.getWins());
+        team.setLosses(recordRequest.getLosses());
+        team.setTies(recordRequest.getTies());
+
+        Team updatedTeam = teamService.saveTeam(team);
+
+        return ResponseEntity.ok(updatedTeam);
+
+    } catch (RuntimeException exception) {
+        return ResponseEntity.badRequest().body(exception.getMessage());
+    }
+}
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteTeam(@PathVariable Long id) {

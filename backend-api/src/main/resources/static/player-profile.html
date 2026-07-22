@@ -3,119 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>League Finder | Customer Profile</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <script src="js/customer-profile.js" defer></script>
+    <title>My Profile | League Finder</title>
+    <link rel="stylesheet" href="milestone.css">
 </head>
-
 <body>
-
-<header>
-    <nav class="navbar">
-        <div class="logo">
-            <div class="shield">
-                <span>LF</span>
-            </div>
-
-            <div class="logo-text">
-                <h1>League Finder</h1>
-                <p>Find. Play. Compete.</p>
-            </div>
+<nav class="navbar">
+    <div class="logo">
+        <div class="shield">LF</div>
+        <div>
+            <h1>League Finder</h1>
+            <p>Find. Play. Compete.</p>
         </div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="leagues.html">Browse Leagues</a></li>
-            <li><a href="teams.html">Teams</a></li>
-            <li><a href="customer-profile.html">Profile</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main class="profile-page">
-    <div class="profile-container">
-
-        <div class="profile-card">
-            <div class="profile-avatar">DA</div>
-
-            <div>
-                <h2>Customer Profile</h2>
-                <p>Manage your sports preferences and availability.</p>
-            </div>
-        </div>
-
-        <div class="profile-header">
-            <h1>My Profile</h1>
-            <p>
-                Update your information to find teams that match
-                your interests.
-            </p>
-        </div>
-
-        <form id="profile-form" class="profile-form">
-            <input type="hidden" id="customer-id">
-
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" required>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" required>
-            </div>
-
-            <div class="form-group">
-                <label for="location">Location</label>
-                <input type="text" id="location">
-            </div>
-
-            <div class="form-group">
-                <label for="favorite-sport">Favorite Sport</label>
-
-                <select id="favorite-sport">
-                    <option value="Basketball">Basketball</option>
-                    <option value="Flag Football">Flag Football</option>
-                    <option value="Soccer">Soccer</option>
-                    <option value="Volleyball">Volleyball</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="skill-level">Skill Level</label>
-
-                <select id="skill-level">
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">
-                        Intermediate
-                    </option>
-                    <option value="Advanced">Advanced</option>
-                </select>
-            </div>
-
-            <div class="profile-actions">
-                <button type="submit" class="profile-button">
-                    Save Profile
-                </button>
-
-                <button
-                    type="reset"
-                    class="profile-button secondary"
-                >
-                    Clear Form
-                </button>
-            </div>
-
-            <p id="message"></p>
-        </form>
-
     </div>
+    <div class="nav-links">
+        <a href="player-profile.html">Profile</a>
+        <a href="/leagues">League API</a>
+    </div>
+</nav>
+
+<main>
+    <section class="profile-header">
+        <div class="profile-picture" id="profile-initials">AA</div>
+        <h1 id="profile-name">Create Your Profile</h1>
+        <p id="profile-summary">Add your location and favorite sport.</p>
+    </section>
+
+    <section class="profile-grid">
+        <article class="profile-card profile-details">
+            <h2>Personal Information</h2>
+            <p><strong>Name:</strong> <span id="display-name">Not set</span></p>
+            <p><strong>Email:</strong> <span id="display-email">Not set</span></p>
+            <p><strong>Location:</strong> <span id="display-location">Not set</span></p>
+            <p><strong>Favorite Sport:</strong> <span id="display-sport">Not set</span></p>
+            <button type="button" id="edit-button">Edit Profile</button>
+        </article>
+
+        <article class="profile-card form-card" id="profile-form-card">
+            <h2 id="form-title">Create Profile</h2>
+            <form id="customer-form">
+                <label for="name">Name</label>
+                <input id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required>
+
+                <label for="location">Location</label>
+                <input id="location" name="location" required>
+
+                <label for="favoriteSport">Favorite Sport</label>
+                <input id="favoriteSport" name="favoriteSport" required>
+
+                <button type="submit" id="save-button">Create Profile</button>
+                <p id="customer-message" class="message" aria-live="polite"></p>
+            </form>
+        </article>
+
+        <article class="profile-card">
+            <h2>Profile Purpose</h2>
+            <p>Your profile helps local leagues understand your sport preference and location.</p>
+            <p>All changes are saved through the Spring Boot API and PostgreSQL database.</p>
+        </article>
+    </section>
 </main>
-<script src="js/player-profile.js?v=2"></script>
+
+<script src="customer.js"></script>
 </body>
 </html>

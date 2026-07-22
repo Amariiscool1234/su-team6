@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | League Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        <div class="shield">
+            <span>LF</span>
+        </div>
+
+        <div class="logo-text">
+            <h1>League Finder</h1>
+            <p>Find. Play. Compete.</p>
+        </div>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="leagues.html">Browse Leagues</a></li>
+        <li><a href="player-dashboard.html">Dashboard</a></li>
+        <li><a href="login.html">Logout</a></li>
+    </ul>
+
+</nav>
+
+<section class="profile-header">
+
+    <div class="profile-picture">
+        
+    </div>
+
+    <h1>De'Saun Avent</h1>
+
+    <p>Intermediate Player • Greensboro, NC</p>
+
+</section>
+
+<section class="profile-grid">
+
+    <div class="profile-card">
+        <h2>Personal Information</h2>
+
+        <p><strong>Name:</strong> De'Saun Avent</p>
+        <p><strong>Email:</strong> desaun@email.com</p>
+        <p><strong>Location:</strong> Greensboro, NC</p>
+        <p><strong>Skill Level:</strong> Intermediate</p>
+
+        <button>Edit Profile</button>
+    </div>
+
+    <div class="profile-card">
+        <h2>Favorite Sports</h2>
+
+        <ul>
+            <li>🏀 Basketball</li>
+            <li>🏈 Flag Football</li>
+            <li>🏐 Volleyball</li>
+        </ul>
+
+        <button>Update Favorites</button>
+    </div>
+
+    <div class="profile-card">
+        <h2>Joined Leagues</h2>
+
+        <ul>
+            <li>Greensboro Summer Basketball</li>
+            <li>Gate City Flag Football</li>
+        </ul>
+
+        <button>View My Leagues</button>
+    </div>
+
+    <div class="profile-card">
+        <h2>Achievements</h2>
+
+        <p> Leagues Joined: 2</p>
+        <p> Games Played: 18</p>
+        <p> Seasons Completed: 3</p>
+
+    </div>
+
+    <div class="profile-card">
+        <h2>Upcoming Games</h2>
+
+        <p>🏀 Greensboro Summer Hoops</p>
+        <p>July 10 • 7:00 PM</p>
+
+        <hr>
+
+        <p>🏈 Gate City Flag Football</p>
+        <p>July 17 • 1:00 PM</p>
+
+    </div>
+
+    <div class="profile-card">
+        <h2>Account Settings</h2>
+
+        <button type="button" id="change-password-button">Change Password</button>
+
+        <button type="button" id="notification-settings-button">Notification Settings</button>
+
+        <button type="button" id="delete-account-button">Delete Account</button>
+
+    </div>
+
+</section>
+
+<dialog id="password-dialog" class="settings-dialog">
+    <form id="password-form">
+        <h2>Change Password</h2>
+
+        <label for="current-password">Current Password</label>
+        <input type="password" id="current-password" required>
+
+        <label for="new-password">New Password</label>
+        <input type="password" id="new-password" minlength="8" required>
+
+        <label for="confirm-password">Confirm New Password</label>
+        <input type="password" id="confirm-password" minlength="8" required>
+
+        <p id="password-message" class="settings-message" aria-live="polite"></p>
+
+        <div class="dialog-actions">
+            <button type="button" data-close-dialog="password-dialog">Cancel</button>
+            <button type="submit">Save Password</button>
+        </div>
+    </form>
+</dialog>
+
+<dialog id="notification-dialog" class="settings-dialog">
+    <form id="notification-form">
+        <h2>Notification Settings</h2>
+
+        <label class="checkbox-setting">
+            <input type="checkbox" id="email-notifications">
+            Email notifications
+        </label>
+
+        <label class="checkbox-setting">
+            <input type="checkbox" id="game-reminders">
+            Upcoming game reminders
+        </label>
+
+        <label class="checkbox-setting">
+            <input type="checkbox" id="league-updates">
+            League updates
+        </label>
+
+        <p id="notification-message" class="settings-message" aria-live="polite"></p>
+
+        <div class="dialog-actions">
+            <button type="button" data-close-dialog="notification-dialog">Cancel</button>
+            <button type="submit">Save Settings</button>
+        </div>
+    </form>
+</dialog>
+
+<dialog id="delete-dialog" class="settings-dialog">
+    <form id="delete-form">
+        <h2>Delete Account</h2>
+        <p>This removes the profile information saved by this prototype from this browser.</p>
+
+        <label for="delete-confirmation">Type DELETE to confirm</label>
+        <input type="text" id="delete-confirmation" autocomplete="off" required>
+
+        <p id="delete-message" class="settings-message" aria-live="polite"></p>
+
+        <div class="dialog-actions">
+            <button type="button" data-close-dialog="delete-dialog">Cancel</button>
+            <button type="submit" class="danger-button">Delete Account</button>
+        </div>
+    </form>
+</dialog>
+
+<footer>
+
+<p>&copy; 2026 League Finder. All rights reserved.</p>
+
+</footer>
+
+<script src="player-profile.js"></script>
+</body>
+</html>

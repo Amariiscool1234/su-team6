@@ -13,17 +13,21 @@ public class Team {
 
     @ManyToOne
     @JoinColumn(name = "provider_id", nullable = false)
+    @JsonIgnoreProperties({"teams"})
     private Provider provider;
 
     @Column(nullable = false)
     private String name;
-
     private String sport;
     private String skillLevel;
     private Integer maxPlayers;
+    private int wins = 0;
+    private int losses = 0;
+    private int ties = 0;
 
     @ManyToOne
     @JoinColumn(name = "league_id", nullable = false)
+    @JsonIgnoreProperties({"teams"})
     private league league;
 
     public Team() {
@@ -84,4 +88,27 @@ public class Team {
     public void setLeague(league league) {
         this.league = league;
     }
+    public int getWins() {
+    return wins;
+}
+
+public void setWins(int wins) {
+    this.wins = wins;
+}
+
+public int getLosses() {
+    return losses;
+}
+
+public void setLosses(int losses) {
+    this.losses = losses;
+}
+
+public int getTies() {
+    return ties;
+}
+
+public void setTies(int ties) {
+    this.ties = ties;
+}
 }

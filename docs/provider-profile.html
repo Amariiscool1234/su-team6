@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | League Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <div class="shield"><span>LF</span></div>
+        <div class="logo-text">
+            <h1>League Finder</h1>
+            <p>Find. Play. Compete.</p>
+        </div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="organizer-dashboard.html">Dashboard</a></li>
+        <li><a href="provider-profile.html">Profile</a></li>
+        <li><a href="manage-teams.html">Manage Teams</a></li>
+    </ul>
+</nav>
+
+<section class="profile-header">
+    <div class="profile-picture" id="profile-initials">AA</div>
+    <h1 id="profile-heading">Amari Ames</h1>
+    <p id="profile-summary">League Provider • Greensboro, NC</p>
+</section>
+
+<section class="profile-grid">
+    <div class="profile-card">
+        <h2>Information</h2>
+        <p><strong>Name:</strong> <span id="display-name">Amari Ames</span></p>
+        <p><strong>Email:</strong> <span id="display-email">amari@example.com</span></p>
+        <p><strong>Phone:</strong> <span id="display-phone">(336) 555-0147</span></p>
+        <p><strong>Organization:</strong> <span id="display-organization">Gate City Sports</span></p>
+        <p><strong>Sport:</strong> <span id="display-sport">Basketball</span></p>
+        <p><strong>Location:</strong> <span id="display-location">Greensboro, NC</span></p>
+    </div>
+
+    <div class="profile-card">
+        <h2>Update Profile</h2>
+        <form id="provider-prototype-form" class="provider-form">
+            <label for="provider-name">Name</label>
+            <input id="provider-name" value="Amari Ames" required>
+
+            <label for="provider-email">Email</label>
+            <input id="provider-email" type="email" value="amari@example.com" required>
+
+            <label for="provider-phone">Phone</label>
+            <input id="provider-phone" value="(336) 555-0147" required>
+
+            <label for="provider-organization">Organization</label>
+            <input id="provider-organization" value="Gate City Sports" required>
+
+            <label for="provider-sport">Sport</label>
+            <input id="provider-sport" value="Basketball" required>
+
+            <label for="provider-location">Location</label>
+            <input id="provider-location" value="Greensboro, NC" required>
+
+            <button type="submit">Update Profile</button>
+            <p id="provider-prototype-message" class="prototype-message"></p>
+        </form>
+    </div>
+
+</section>
+
+<footer><p>&copy; 2026 League Finder. All rights reserved.</p></footer>
+<script src="provider-profile-docs.js"></script>
+</body>
+</html>

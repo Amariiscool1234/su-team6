@@ -83,4 +83,7 @@ public class TeamService {
 
         teamRepository.deleteById(id);
     }
+    public Team saveTeam(Team team) {
+    return teamRepository.save(team);
+}
 }
