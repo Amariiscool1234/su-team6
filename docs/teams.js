@@ -1,3 +1,4 @@
+const API_BASE_URL = "https://league-finder-backendapi.onrender.com";
 const teamList = document.getElementById("team-list");
 const registrationList =
     document.getElementById("registration-list");
@@ -5,7 +6,7 @@ const message = document.getElementById("message");
 
 async function loadTeams() {
     try {
-        const response = await fetch("/teams");
+        const response = await fetch(`${API_BASE_URL}/teams`);
 
         if (!response.ok) {
             throw new Error("Unable to load teams");
@@ -66,7 +67,7 @@ async function registerForTeam(teamId) {
     };
 
     try {
-        const response = await fetch("/team-registrations", {
+        const response = await fetch(`${API_BASE_URL}/team-registrations`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -99,7 +100,7 @@ async function loadCustomerRegistrations() {
 
     try {
         const response = await fetch(
-            `/team-registrations/customer/${customerId}`
+            `${API_BASE_URL}/team-registrations/customer/${customerId}`
         );
 
         if (!response.ok) {

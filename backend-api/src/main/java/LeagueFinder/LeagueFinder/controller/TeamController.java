@@ -96,14 +96,6 @@ public ResponseEntity<?> updateTeamRecord(
                 || recordRequest.getTies() < 0) {
 
             return ResponseEntity.badRequest()
-                    .body("Wins, losses, and ties are required.");
-        }
-
-        if (recordRequest.getWins() < 0
-                || recordRequest.getLosses() < 0
-                || recordRequest.getTies() < 0) {
-
-            return ResponseEntity.badRequest()
                     .body("Team records cannot be negative.");
         }
 

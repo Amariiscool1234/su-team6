@@ -216,7 +216,7 @@ Example response:
 
 Retrieve a Provider by ID
 
-3.3 Getting Provider endpoints
+3.3 Provider Endpoints
 GET /providers/{id}
 
 Retrieves a specific provider profile using its ID.
@@ -231,19 +231,11 @@ Example response:
   "id": 1,
   "name": "Amari Ames",
   "email": "amari@example.com",
-  "accountStatus": "active",
+  "phoneNumber": "336-555-0147",
   "organizationName": "336 Rangerz",
-  "biography": "Local sports league organizer."
+  "sportType": "Basketball",
+  "location": "Greensboro, NC"
 }
-Retrieve a Provider by Email
-
-GET /providers/email/{email}
-
-Retrieves a provider profile using its email address.
-
-Example request:
-
-GET https://league-finder-backendapi.onrender.com/providers/email/amari@example.com
 Create a Provider
 
 POST /providers
@@ -255,10 +247,10 @@ Example request body:
 {
   "name": "Amari Ames",
   "email": "amari@example.com",
-  "password": "password123",
-  "accountStatus": "active",
+  "phoneNumber": "336-555-0147",
   "organizationName": "336 Rangerz",
-  "biography": "Local sports league organizer."
+  "sportType": "Basketball",
+  "location": "Greensboro, NC"
 }
 
 Example response:
@@ -267,10 +259,10 @@ Example response:
   "id": 1,
   "name": "Amari Ames",
   "email": "amari@example.com",
-  "password": "password123",
-  "accountStatus": "active",
+  "phoneNumber": "336-555-0147",
   "organizationName": "336 Rangerz",
-  "biography": "Local sports league organizer."
+  "sportType": "Basketball",
+  "location": "Greensboro, NC"
 }
 Update a Provider
 
@@ -287,10 +279,10 @@ Example request body:
 {
   "name": "Amari Ames",
   "email": "amari@example.com",
-  "password": "newpassword123",
-  "accountStatus": "active",
+  "phoneNumber": "336-555-0147",
   "organizationName": "336 Rangerz Updated",
-  "biography": "Organizer of local soccer and basketball leagues."
+  "sportType": "Basketball",
+  "location": "Greensboro, NC"
 }
 
 Example response:
@@ -299,10 +291,10 @@ Example response:
   "id": 1,
   "name": "Amari Ames",
   "email": "amari@example.com",
-  "password": "newpassword123",
-  "accountStatus": "active",
+  "phoneNumber": "336-555-0147",
   "organizationName": "336 Rangerz Updated",
-  "biography": "Organizer of local soccer and basketball leagues."
+  "sportType": "Basketball",
+  "location": "Greensboro, NC"
 }
 Delete a Provider
 
