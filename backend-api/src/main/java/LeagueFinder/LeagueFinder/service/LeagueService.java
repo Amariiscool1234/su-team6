@@ -17,6 +17,10 @@ public class LeagueService {
         return leagueRepository.findAll();
     }
 
+    public List<league> getLeaguesBySport(String sport) {
+        return leagueRepository.findBySportIgnoreCase(sport);
+    }
+
     public league createLeague(league league) {
         return leagueRepository.save(league);
     }

@@ -22,6 +22,11 @@ public class LeagueController {
         return leagueService.getAllLeagues();
     }
 
+    @GetMapping("/sport/{sport}")
+    public List<league> getLeaguesBySport(@PathVariable String sport) {
+        return leagueService.getLeaguesBySport(sport);
+    }
+
     @PostMapping
     public league createLeague(@RequestBody league league) {
         return leagueService.createLeague(league);
