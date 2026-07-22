@@ -65,7 +65,7 @@ function displayProvider(provider) {
         `${provider.organizationName} • ${provider.sportType} • ${provider.location}`;
     document.getElementById("provider-initials").textContent = provider.name
         .split(/\s+/).slice(0, 2).map(part => part[0]).join("").toUpperCase();
-    document.getElementById("provider-form-title").textContent = "Update Provider Profile";
+    document.getElementById("provider-form-title").textContent = "Update Profile";
     document.getElementById("provider-save-button").textContent = "Update Profile";
 }
 

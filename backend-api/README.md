@@ -53,6 +53,19 @@ Example response:
     "description": "Updated league information"
   }
 ]
+
+Find Leagues by Sport
+
+GET /leagues/sport/{sport}
+
+Returns leagues whose sport matches the supplied value. The search is case-insensitive.
+
+Example request:
+
+GET https://league-finder-backendapi.onrender.com/leagues/sport/Basketball
+
+An unmatched sport returns an empty JSON array.
+
 Create a League
 
 POST /leagues
