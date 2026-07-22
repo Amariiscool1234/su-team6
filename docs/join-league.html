@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Join League | League Finder</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        <div class="shield">
+            <span>LF</span>
+        </div>
+
+        <div class="logo-text">
+            <h1>League Finder</h1>
+            <p>Find. Play. Compete.</p>
+        </div>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="leagues.html">Browse Leagues</a></li>
+        <li><a href="player-dashboard.html">Dashboard</a></li>
+        <li><a href="player-profile.html">Profile</a></li>
+        <li><a href="login.html">Logout</a></li>
+    </ul>
+
+</nav>
+
+<section class="join-hero">
+
+    <h1>Join Greensboro Summer Hoops</h1>
+
+    <p>Complete the registration form below to reserve your spot.</p>
+
+</section>
+
+<main class="join-container">
+
+    <section class="join-form-section">
+
+        <form class="join-form" id="joinForm">
+
+            <h2>Player Registration</h2>
+
+            <p class="form-description">
+                Enter your player information and review the league details before submitting.
+            </p>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+
+                    <input
+                        type="text"
+                        id="firstName"
+                        placeholder="Enter your first name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+
+                    <input
+                        type="text"
+                        id="lastName"
+                        placeholder="Enter your last name"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        min="18"
+                        placeholder="Enter your age"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="skillLevel">Skill Level</label>
+
+                    <select id="skillLevel" required>
+                        <option value="">Select skill level</option>
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Competitive</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="position">Preferred Position</label>
+
+                    <select id="position" required>
+                        <option value="">Select position</option>
+                        <option>Point Guard</option>
+                        <option>Shooting Guard</option>
+                        <option>Small Forward</option>
+                        <option>Power Forward</option>
+                        <option>Center</option>
+                        <option>No Preference</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="jerseySize">Jersey Size</label>
+
+                    <select id="jerseySize" required>
+                        <option value="">Select jersey size</option>
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                        <option>Extra Large</option>
+                        <option>2X Large</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="emergencyContact">Emergency Contact Name</label>
+
+                <input
+                    type="text"
+                    id="emergencyContact"
+                    placeholder="Enter emergency contact name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="emergencyPhone">Emergency Contact Phone</label>
+
+                <input
+                    type="tel"
+                    id="emergencyPhone"
+                    placeholder="Enter emergency contact phone number"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Additional Notes</label>
+
+                <textarea
+                    id="notes"
+                    placeholder="List any injuries, accommodations, or information the organizer should know."
+                ></textarea>
+            </div>
+
+            <div class="agreement-box">
+
+                <input type="checkbox" id="agreement" required>
+
+                <label for="agreement">
+                    I agree to follow league rules, practice good sportsmanship,
+                    and understand that the $85 registration fee is required.
+                </label>
+
+            </div>
+
+            <button type="submit" class="join-submit-button">
+                Complete Registration
+            </button>
+
+            <p id="joinMessage"></p>
+
+        </form>
+
+    </section>
+
+    <aside class="join-summary">
+
+        <div class="join-summary-card">
+
+            <h2>Registration Summary</h2>
+
+            <div class="summary-sport">🏀</div>
+
+            <h3>Greensboro Summer Hoops</h3>
+
+            <div class="summary-item">
+                <span>Location</span>
+                <strong>Greensboro Sportsplex</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>Season</span>
+                <strong>July 15 – August 30</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>Game Night</span>
+                <strong>Fridays at 7:00 PM</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>Skill Level</span>
+                <strong>Intermediate</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>Spots Remaining</span>
+                <strong>6</strong>
+            </div>
+
+            <div class="summary-total">
+                <span>Registration Fee</span>
+                <strong>$85</strong>
+            </div>
+
+            <a href="league-details.html" class="summary-back-link">
+                ← Return to League Details
+            </a>
+
+        </div>
+
+        <div class="help-card">
+
+            <h2>Need Help?</h2>
+
+            <p>
+                Contact the league organizer if you have questions about registration,
+                scheduling, or team placement.
+            </p>
+
+            <a href="contact.html">Contact Support</a>
+
+        </div>
+
+    </aside>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 League Finder. All rights reserved.</p>
+</footer>
+
+<script>
+
+document.getElementById("joinForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const firstName = document.getElementById("firstName").value;
+    const agreement = document.getElementById("agreement").checked;
+    const joinMessage = document.getElementById("joinMessage");
+
+    if (!agreement) {
+
+        joinMessage.textContent =
+            "Please accept the league agreement before registering.";
+
+        joinMessage.className = "join-error";
+
+        return;
+    }
+
+    joinMessage.textContent =
+        "Registration complete, " + firstName +
+        "! You have successfully joined Greensboro Summer Hoops.";
+
+    joinMessage.className = "join-success";
+
+    this.reset();
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>League Finder | Home </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+    <style>
+        .records-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .records-container h1,
+        .records-container p {
+            text-align: center;
+        }
+
+        .records-table {
+            width: 100%;
+            margin-top: 25px;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .records-table th,
+        .records-table td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .records-table th {
+            background: #1f2937;
+            color: white;
+        }
+
+        .records-table tr:hover {
+            background: #f3f4f6;
+        }
+
+        #message {
+            margin-top: 25px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+      <div class="logo">
+    <div class="shield">
+        <span>LF</span>
+    </div>
+
+    <div class="logo-text">
+        <h1>League Finder</h1>
+        <p>Find. Play. Compete.</p>
+    </div>
+</div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="leagues.html">Browse Leagues</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<main class="records-container">
+    <h1>Team Records</h1>
+    <p>Compare team performance throughout the season.</p>
+
+    <p id="message">Loading team records...</p>
+
+    <table id="records-table" class="records-table" hidden>
+        <thead>
+        <tr>
+            <th>Team</th>
+            <th>Sport</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Ties</th>
+            <th>Record</th>
+        </tr>
+        </thead>
+
+        <tbody id="records-body"></tbody>
+    </table>
+</main>
+
+<script>
+    const recordsBody = document.getElementById("records-body");
+    const recordsTable = document.getElementById("records-table");
+    const message = document.getElementById("message");
+
+    async function loadTeamRecords() {
+        try {
+            const response = await fetch("/teams/records");
+
+            if (!response.ok) {
+                throw new Error("Unable to load team records.");
+            }
+
+            const teams = await response.json();
+
+            if (teams.length === 0) {
+                message.textContent = "No team records are available.";
+                return;
+            }
+
+            recordsBody.innerHTML = "";
+
+            teams.forEach(team => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td>${team.name}</td>
+                    <td>${team.sport}</td>
+                    <td>${team.wins}</td>
+                    <td>${team.losses}</td>
+                    <td>${team.ties}</td>
+                    <td>${team.wins}-${team.losses}-${team.ties}</td>
+                `;
+
+                recordsBody.appendChild(row);
+            });
+
+            message.hidden = true;
+            recordsTable.hidden = false;
+
+        } catch (error) {
+            console.error(error);
+            message.textContent =
+                "Could not load team records. Make sure the backend is running.";
+        }
+    }
+
+    loadTeamRecords();
+</script>
+
+</body>
+</html>
