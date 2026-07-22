@@ -445,6 +445,8 @@ footer {
 
 .league-container {
   width: 90%;
+  max-width: 1180px;
+  min-height: 320px;
   margin: 50px auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -456,6 +458,13 @@ footer {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 8px 18px rgba(0,0,0,.1);
+  text-align: left;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.league-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, .16);
 }
 
 .league-image {
@@ -479,6 +488,14 @@ footer {
 }
 
 .soccer {
+  background: #dcfce7;
+}
+
+.recreation {
+  background: #e2e8f0;
+}
+
+.soccer {
   background: #e5e7eb;
 }
 
@@ -493,6 +510,50 @@ footer {
 
 .league-info p {
   margin: 8px 0;
+}
+
+.league-sport-badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #075985;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.league-location {
+  color: #475569;
+  font-weight: bold;
+}
+
+.league-description {
+  min-height: 48px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.league-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.league-actions .btn {
+  flex: 1;
+  min-width: 125px;
+  text-align: center;
+}
+
+.league-search-message {
+  min-height: 24px;
+  margin-top: 18px;
+  color: #334155;
+  font-weight: bold;
 }
 .create-hero {
   background: #0f172a;
@@ -1529,6 +1590,7 @@ footer {
     }
 }
 <<<<<<< HEAD:backend-api/src/main/resources/static/css/style.css
+<<<<<<< HEAD:backend-api/src/main/resources/static/css/style.css
 .profile-page {
     min-height: 100vh;
     background: #f4f4f4;
@@ -1884,6 +1946,8 @@ footer {
 }
 }
 =======
+=======
+>>>>>>> origin/main:docs/style.css
 
 .settings-dialog {
     width: min(92%, 480px);
@@ -1952,4 +2016,7 @@ footer {
 .settings-dialog .danger-button {
     background: #b3261e;
 }
+<<<<<<< HEAD:backend-api/src/main/resources/static/css/style.css
 >>>>>>> eeb4a50e9db37245b2bc2efa18fe8ad222593b15:docs/style.css
+=======
+>>>>>>> origin/main:docs/style.css

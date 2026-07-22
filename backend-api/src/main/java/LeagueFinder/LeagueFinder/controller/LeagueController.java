@@ -3,6 +3,7 @@ package LeagueFinder.LeagueFinder.controller;
 import LeagueFinder.LeagueFinder.entity.league;
 import LeagueFinder.LeagueFinder.service.LeagueService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -25,6 +26,15 @@ public class LeagueController {
     @GetMapping("/sport/{sport}")
     public List<league> getLeaguesBySport(@PathVariable String sport) {
         return leagueService.getLeaguesBySport(sport);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getLeagueById(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok(leagueService.getLeagueById(id));
+        } catch (RuntimeException exception) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
