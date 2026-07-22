@@ -2,7 +2,6 @@ package LeagueFinder.LeagueFinder.repository;
 
 import LeagueFinder.LeagueFinder.entity.TeamRegistration;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import java.util.List;
 
 public interface TeamRegistrationRepository

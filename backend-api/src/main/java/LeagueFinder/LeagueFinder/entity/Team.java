@@ -1,29 +1,33 @@
 package LeagueFinder.LeagueFinder.entity;
-import LeagueFinder.LeagueFinder.entity.Provider;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "teams")
-
 public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @ManyToOne
     @JoinColumn(name = "provider_id", nullable = false)
+    @JsonIgnoreProperties({"teams"})
     private Provider provider;
 
     @Column(nullable = false)
     private String name;
-
     private String sport;
     private String skillLevel;
     private Integer maxPlayers;
+    private int wins = 0;
+    private int losses = 0;
+    private int ties = 0;
 
     @ManyToOne
     @JoinColumn(name = "league_id", nullable = false)
+    @JsonIgnoreProperties({"teams"})
     private league league;
 
     public Team() {
@@ -35,6 +39,14 @@ public class Team {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Provider getProvider() {
+        return provider;
+    }
+
+    public void setProvider(Provider provider) {
+        this.provider = provider;
     }
 
     public String getName() {
@@ -76,10 +88,27 @@ public class Team {
     public void setLeague(league league) {
         this.league = league;
     }
-    public Provider getProvider(){
-        return provider;
-    }
-    public void setProvider(Provider provider){
-        this.provider = provider;
-    }
+    public int getWins() {
+    return wins;
+}
+
+public void setWins(int wins) {
+    this.wins = wins;
+}
+
+public int getLosses() {
+    return losses;
+}
+
+public void setLosses(int losses) {
+    this.losses = losses;
+}
+
+public int getTies() {
+    return ties;
+}
+
+public void setTies(int ties) {
+    this.ties = ties;
+}
 }
