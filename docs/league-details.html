@@ -32,9 +32,9 @@
 
 <section class="details-hero">
     <div>
-        <span class="sport-label"> Basketball</span>
-        <h1>Greensboro Summer Hoops</h1>
-        <p>Competitive basketball, community, and weekly games in Greensboro.</p>
+        <span class="sport-label" id="league-sport">Basketball</span>
+        <h1 id="league-name">Loading league...</h1>
+        <p id="league-summary">Loading league information...</p>
     </div>
 </section>
 
@@ -45,18 +45,14 @@
         <div class="details-card">
             <h2>League Overview</h2>
 
-            <p>
-                Greensboro Summer Hoops is an adult basketball league for intermediate
-                players looking for organized competition, reliable scheduling, and a
-                fun community environment.
-            </p>
+            <p id="league-description">Loading league description...</p>
 
             <div class="details-facts">
                 <div>
                     <span></span>
                     <div>
                         <strong>Location</strong>
-                        <p>Greensboro Sportsplex</p>
+                        <p id="league-location">Loading...</p>
                     </div>
                 </div>
 
@@ -105,39 +101,8 @@
         <div class="details-card">
             <h2>Season Schedule</h2>
 
-            <div class="schedule-list">
-                <div class="schedule-item">
-                    <div>
-                        <strong>Opening Game</strong>
-                        <p>Greensboro Hoopers vs. Carolina Kings</p>
-                    </div>
-                    <span>July 17 · 7:00 PM</span>
-                </div>
-
-                <div class="schedule-item">
-                    <div>
-                        <strong>Week Two</strong>
-                        <p>Greensboro Hoopers vs. Triad Storm</p>
-                    </div>
-                    <span>July 24 · 7:00 PM</span>
-                </div>
-
-                <div class="schedule-item">
-                    <div>
-                        <strong>Week Three</strong>
-                        <p>Greensboro Hoopers vs. Gate City Elite</p>
-                    </div>
-                    <span>July 31 · 8:00 PM</span>
-                </div>
-
-                <div class="schedule-item">
-                    <div>
-                        <strong>Championship Weekend</strong>
-                        <p>Top four teams advance</p>
-                    </div>
-                    <span>August 28</span>
-                </div>
-            </div>
+            <p id="schedule-message" aria-live="polite">Loading schedule...</p>
+            <div class="schedule-list" id="schedule-list"></div>
         </div>
 
         <div class="details-card">
@@ -157,8 +122,8 @@
 
             <div class="map-placeholder">
                 <span></span>
-                <h3>Greensboro Sportsplex</h3>
-                <p>2400 Sixteenth Street, Greensboro, NC</p>
+                <h3 id="venue-name">League Location</h3>
+                <p id="venue-address">Loading...</p>
             </div>
         </div>
 
@@ -177,7 +142,7 @@
 
             <p class="spots-left">6 spots remaining</p>
 
-            <a href="join-league.html" class="details-button primary-action">
+            <a href="join-league.html" id="join-league-link" class="details-button primary-action">
                 Join League
             </a>
 
@@ -217,5 +182,6 @@
     <p>&copy; 2026 League Finder. All rights reserved.</p>
 </footer>
 
+<script src="league-details.js"></script>
 </body>
 </html>

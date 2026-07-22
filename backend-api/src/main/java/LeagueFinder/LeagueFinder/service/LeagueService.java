@@ -21,6 +21,11 @@ public class LeagueService {
         return leagueRepository.findBySportIgnoreCase(sport);
     }
 
+    public league getLeagueById(Long id) {
+        return leagueRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("League not found."));
+    }
+
     public league createLeague(league league) {
         return leagueRepository.save(league);
     }
