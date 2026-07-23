@@ -25,120 +25,143 @@
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="leagues.html">Browse Leagues</a></li>
-      <li><a href="records.html">Team Records</a></li>
+        <li><a href="records.html">Team Records</a></li>
         <li><a href="player-profile.html">Profile</a></li>
-        <li><a href="login.html">Logout</a></li>
 
+        <li>
+            <form action="/logout" method="post" class="logout-form">
+                <button type="submit" class="logout-btn">
+                    Log Out
+                </button>
+            </form>
+        </li>
     </ul>
 
 </nav>
 
 <section class="dashboard-header">
-    <h1>Welcome Back, De'Saun </h1>
+    <h1 id="welcome-message">Welcome Back!</h1>
     <p>Here's everything happening with your leagues.</p>
 </section>
 
 <section class="dashboard-grid">
 
-<div class="card">
-<h2> My League</h2>
+    <div class="card">
+        <h2>My League</h2>
 
-<p><strong>League:</strong> Greensboro Summer Basketball</p>
+        <p><strong>League:</strong> Greensboro Summer Basketball</p>
+        <p><strong>Team:</strong> Greensboro Hoopers</p>
+        <p><strong>Division:</strong> Intermediate</p>
 
-<p><strong>Team:</strong> Greensboro Hoopers</p>
+        <button>View League</button>
+    </div>
 
-<p><strong>Division:</strong> Intermediate</p>
+    <div class="card">
+        <h2>Next Game</h2>
 
-<button>View League</button>
+        <p>Friday, July 10</p>
+        <p>7:00 PM</p>
+        <p>Greensboro Sportsplex</p>
 
-</div>
+        <button>View Schedule</button>
+    </div>
 
+    <div class="card">
+        <h2>Team Members</h2>
 
-<div class="card">
+        <ul>
+            <li>Amari Ames</li>
+            <li>Stephen Curry</li>
+            <li>LeBron James</li>
+            <li>Kevin Durant</li>
+            <li>You</li>
+        </ul>
 
-<h2> Next Game</h2>
+        <button>View Team</button>
+    </div>
 
-<p>Friday, July 10</p>
+    <div class="card">
+        <h2>Announcements</h2>
 
-<p>7:00 PM</p>
+        <p>Season starts next Friday.</p>
+        <p>Please arrive 30 minutes early for check-in.</p>
 
-<p>Greensboro Sportsplex</p>
+        <button>View All</button>
+    </div>
 
-<button>View Schedule</button>
+    <div class="card">
+        <h2>Saved Leagues</h2>
 
-</div>
+        <ul>
+            <li>Indoor Volleyball</li>
+            <li>Flag Football</li>
+            <li>Soccer League</li>
+        </ul>
 
+        <button>Browse More</button>
+    </div>
 
-<div class="card">
+    <div class="card">
+        <h2>My Account</h2>
 
-<h2> Team Members</h2>
+        <p><strong>Name:</strong> <span id="account-name">Loading...</span></p>
+        <p><strong>Email:</strong> <span id="account-email">Loading...</span></p>
+        <p><strong>Location:</strong> <span id="account-location">Loading...</span></p>
+        <p><strong>Favorite Sport:</strong> <span id="account-sport">Loading...</span></p>
+        <p><strong>Skill Level:</strong> <span id="account-skill">Loading...</span></p>
 
-<ul>
-
-<li>Amari Ames</li>
-
-<li>Stephen Curry</li>
-
-<li>Lebron James</li>
-
-<li>Kevin Durant</li>
-
-<li>De'Saun Avent</li>
-
-</ul>
-
-<button>View Team</button>
-
-</div>
-
-
-<div class="card">
-
-<h2> Announcements</h2>
-
-<p>Season starts next Friday.</p>
-
-<p>Please arrive 30 minutes early for check-in.</p>
-
-<button>View All</button>
-
-</div>
-
-
-<div class="card">
-
-<h2> Saved Leagues</h2>
-
-<ul>
-
-<li>Indoor Volleyball</li>
-
-<li>Flag Football</li>
-
-<li>Soccer League</li>
-
-</ul>
-
-<button>Browse More</button>
-
-</div>
-
-
-<div class="card">
-
-<h2> Account</h2>
-
-<p>Name: De'Saun Avent</p>
-
-<p>Skill Level: Intermediate</p>
-
-<p>Favorite Sport: Basketball</p>
-
-<button>Edit Profile</button>
-
-</div>
+        <button onclick="location.href='player-profile.html'">
+            Edit Profile
+        </button>
+    </div>
 
 </section>
 
+<script>
+async function loadCurrentCustomer() {
+
+    try {
+
+        const response = await fetch("/auth/me");
+
+        if (response.status === 401 || response.status === 403) {
+            window.location.href = "login.html";
+            return;
+        }
+
+        if (!response.ok) {
+            throw new Error("Unable to load account.");
+        }
+
+        const customer = await response.json();
+
+        document.getElementById("welcome-message").textContent =
+            "Welcome Back, " + customer.name + "!";
+
+        document.getElementById("account-name").textContent =
+            customer.name;
+
+        document.getElementById("account-email").textContent =
+            customer.email;
+
+        document.getElementById("account-location").textContent =
+            customer.location;
+
+        document.getElementById("account-sport").textContent =
+            customer.favoriteSport;
+
+        document.getElementById("account-skill").textContent =
+            customer.skillLevel;
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+loadCurrentCustomer();
+</script>
+
 </body>
-</html>

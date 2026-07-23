@@ -36,20 +36,70 @@
       <h2>Create Account</h2>
       <p>Register to join leagues or create your own.</p>
 
-      <form class="auth-form">
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="password" placeholder="Password" required>
-        <input type="password" placeholder="Confirm Password" required>
+      <form id="register-form">
 
-        <select required title="Select account type">
-          <option value="">Select Account Type</option>
-          <option value="player">Player</option>
-          <option value="organizer">League Organizer</option>
-        </select>
+  <input
+    type="text"
+    id="name"
+    placeholder="Full Name"
+    required
+  >
 
-        <button type="submit">Register</button>
-      </form>
+  <input
+    type="email"
+    id="email"
+    placeholder="Email Address"
+    required
+  >
+
+  <input
+    type="text"
+    id="location"
+    placeholder="Location"
+  >
+
+  <select id="favorite-sport" required>
+    <option value="">Select Favorite Sport</option>
+    <option value="Basketball">Basketball</option>
+    <option value="Flag Football">Flag Football</option>
+    <option value="Soccer">Soccer</option>
+    <option value="Volleyball">Volleyball</option>
+  </select>
+
+  <select id="skill-level" required>
+    <option value="">Select Skill Level</option>
+    <option value="Beginner">Beginner</option>
+    <option value="Intermediate">Intermediate</option>
+    <option value="Advanced">Advanced</option>
+  </select>
+
+  <input
+    type="password"
+    id="password"
+    placeholder="Password"
+    minlength="8"
+    required
+  >
+
+  <input
+    type="password"
+    id="confirm-password"
+    placeholder="Confirm Password"
+    minlength="8"
+    required
+  >
+
+  <select id="account-type" required>
+    <option value="">Select Account Type</option>
+    <option value="CUSTOMER">Player</option>
+    <option value="PROVIDER">Provider</option>
+  </select>
+
+  <button type="submit">Create Account</button>
+
+  <p id="message"></p>
+
+</form>
 
       <p class="auth-link">
         Already have an account? <a href="login.html">Login here</a>
@@ -60,6 +110,6 @@
   <footer>
     <p>&copy; 2026 League Finder. All rights reserved.</p>
   </footer>
-
+<script src="js/register.js?v=100"></script>
 </body>
 </html>

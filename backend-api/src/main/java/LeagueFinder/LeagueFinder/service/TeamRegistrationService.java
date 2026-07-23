@@ -42,11 +42,11 @@ public class TeamRegistrationService {
     }
 
     public List<TeamRegistration> getRegistrationsByCustomer(Long customerId) {
-        return registrationRepository.findByCustomerId(customerId);
+        return registrationRepository.findRegistrationsByCustomerId(customerId);
     }
 
     public List<TeamRegistration> getRegistrationsByTeam(Long teamId) {
-        return registrationRepository.findByTeamId(teamId);
+        return registrationRepository.findRegistrationsByTeamId(teamId);
     }
 
     public TeamRegistration registerForTeam(TeamRegistrationRequest request) {
@@ -58,7 +58,7 @@ public class TeamRegistrationService {
 
         boolean alreadyRegistered =
                 registrationRepository.existsByCustomerIdAndTeamId(
-                        customer.getId(),
+                        customer.getCustomerId(),
                         team.getId()
                 );
 

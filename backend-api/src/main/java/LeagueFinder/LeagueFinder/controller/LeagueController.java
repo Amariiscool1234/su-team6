@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/leagues")
-@CrossOrigin(origins = "https://amariiscool1234.github.io")
+@CrossOrigin(origins = "*")
 public class LeagueController {
 
     @Autowired

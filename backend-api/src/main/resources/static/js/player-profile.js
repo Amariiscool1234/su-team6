@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const customer = {
             name: document.getElementById("name").value,
             email: document.getElementById("email").value,
+                password: document.getElementById("password").value,
             location: document.getElementById("location").value,
             favoriteSport:
                 document.getElementById("favorite-sport").value,
@@ -53,11 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const savedCustomer = await response.json();
 
             document.getElementById("customer-id").value =
-                savedCustomer.id;
+                savedCustomer.customerId;
 
             localStorage.setItem(
                 "customerId",
-                savedCustomer.id
+                savedCustomer.customerId
             );
 
             message.textContent = customerId
@@ -92,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const customer = await response.json();
 
             document.getElementById("customer-id").value =
-                customer.id;
+                customer.customerId;
 
             document.getElementById("name").value =
                 customer.name || "";

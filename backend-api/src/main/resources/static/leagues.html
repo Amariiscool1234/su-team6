@@ -3,57 +3,235 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Browse Leagues | League Finder</title>
+
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<nav class="navbar">
-  <div class="logo">
-    <div class="shield"><span>LF</span></div>
-    <div class="logo-text">
-      <h1>League Finder</h1>
-      <p>Find. Play. Compete.</p>
+  <nav class="navbar">
+    <div class="logo">
+      <div class="shield">
+        <span>LF</span>
+      </div>
+
+      <div class="logo-text">
+        <h1>League Finder</h1>
+        <p>Find. Play. Compete.</p>
+      </div>
     </div>
-  </div>
 
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="leagues.html">Browse Leagues</a></li>
-    <li><a href="login.html">Login</a></li>
-    <li><a href="league-details.html" class="btn primary">View Details</a></li>
-     <li><a href="records.html">Team Records</a></li>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="leagues.html">Browse Leagues</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li>
+        <a href="league-details.html" class="btn primary">
+          View Details
+        </a>
+      </li>
+      <li><a href="records.html">Team Records</a></li>
+    </ul>
+  </nav>
 
-  </ul>
-</nav>
+  <main class="leagues-page">
 
-<section class="league-search">
-  <h1>Browse Leagues</h1>
-  <p>Find basketball, flag football, volleyball, and soccer leagues near you.</p>
+    <section class="league-search">
+      <h1>Browse Available Leagues</h1>
 
-  <form class="filters" id="league-search-form">
-    <input id="league-search-input" type="text" placeholder="Search league or city">
+      <p>
+        Find basketball, flag football, volleyball, and soccer
+        leagues near you.
+      </p>
 
-    <select id="sport-filter" title="Select sport">
-      <option value="">All Sports</option>
-      <option value="Basketball">Basketball</option>
-      <option value="Flag Football">Flag Football</option>
-      <option value="Volleyball">Volleyball</option>
-      <option value="Soccer">Soccer</option>
-    </select>
+      <form class="filters" id="league-search-form">
 
-    <button type="submit">Search</button>
-  </form>
-  <p id="league-search-message" aria-live="polite"></p>
-</section>
+        <input
+          id="league-search-input"
+          type="text"
+          placeholder="Search league or city"
+        >
 
-<section class="league-container" id = "league-list"></section>
+        <select id="sport-filter" title="Select a sport">
+          <option value="all">All Sports</option>
+          <option value="basketball">Basketball</option>
+          <option value="flag football">Flag Football</option>
+          <option value="volleyball">Volleyball</option>
+          <option value="soccer">Soccer</option>
+        </select>
 
-<footer>
-  <p>&copy; 2026 League Finder. All rights reserved.</p>
-</footer>
+        <button type="submit" class="btn primary">
+          Search
+        </button>
 
- <script src="leagues.js"></script>
+      </form>
+    </section>
+
+    <p id="league-message"></p>
+
+    <section id="league-container" class="league-grid"></section>
+
+  </main>
+
+  <script>
+    const leagues = [
+      {
+        id: 1,
+        name: "Greensboro Basketball League",
+        sport: "Basketball",
+        location: "Greensboro, NC",
+        season: "Fall 2026"
+      },
+      {
+        id: 2,
+        name: "Triad Hoops League",
+        sport: "Basketball",
+        location: "High Point, NC",
+        season: "Fall 2026"
+      },
+      {
+        id: 3,
+        name: "Carolina Soccer League",
+        sport: "Soccer",
+        location: "Greensboro, NC",
+        season: "Fall 2026"
+      },
+      {
+        id: 4,
+        name: "Piedmont Soccer Association",
+        sport: "Soccer",
+        location: "Winston-Salem, NC",
+        season: "Fall 2026"
+      },
+      {
+        id: 5,
+        name: "Triad Volleyball League",
+        sport: "Volleyball",
+        location: "Greensboro, NC",
+        season: "Fall 2026"
+      },
+      {
+        id: 6,
+        name: "Piedmont Volleyball Association",
+        sport: "Volleyball",
+        location: "High Point, NC",
+        season: "Fall 2026"
+      },
+      {
+        id: 7,
+        name: "Greensboro Flag Football League",
+        sport: "Flag Football",
+        location: "Greensboro, NC",
+        season: "Fall 2026"
+      },
+      {
+        id: 8,
+        name: "Triad Flag Football Association",
+        sport: "Flag Football",
+        location: "Winston-Salem, NC",
+        season: "Fall 2026"
+      }
+    ];
+
+    const leagueContainer =
+      document.getElementById("league-container");
+
+    const sportFilter =
+      document.getElementById("sport-filter");
+
+    const searchInput =
+      document.getElementById("league-search-input");
+
+    const searchForm =
+      document.getElementById("league-search-form");
+
+    const leagueMessage =
+      document.getElementById("league-message");
+
+    function displayLeagues(leagueList) {
+      leagueContainer.innerHTML = "";
+
+      if (leagueList.length === 0) {
+        leagueMessage.textContent =
+          "No leagues match your search.";
+
+        return;
+      }
+
+      leagueMessage.textContent =
+        `${leagueList.length} league(s) found.`;
+
+      leagueList.forEach(league => {
+        const leagueCard = document.createElement("article");
+
+        leagueCard.classList.add("league-card");
+
+        leagueCard.innerHTML = `
+          <h2>${league.name}</h2>
+
+          <p>
+            <strong>Sport:</strong>
+            ${league.sport}
+          </p>
+
+          <p>
+            <strong>Location:</strong>
+            ${league.location}
+          </p>
+
+          <p>
+            <strong>Season:</strong>
+            ${league.season}
+          </p>
+
+          <a
+            class="btn primary"
+            href="league-details.html?id=${league.id}"
+          >
+            View League
+          </a>
+        `;
+
+        leagueContainer.appendChild(leagueCard);
+      });
+    }
+
+    function filterLeagues() {
+      const selectedSport =
+        sportFilter.value.toLowerCase();
+
+      const searchText =
+        searchInput.value.trim().toLowerCase();
+
+      const filteredLeagues = leagues.filter(league => {
+        const matchesSport =
+          selectedSport === "all" ||
+          league.sport.toLowerCase() === selectedSport;
+
+        const matchesSearch =
+          league.name.toLowerCase().includes(searchText) ||
+          league.location.toLowerCase().includes(searchText) ||
+          league.sport.toLowerCase().includes(searchText);
+
+        return matchesSport && matchesSearch;
+      });
+
+      displayLeagues(filteredLeagues);
+    }
+
+    searchForm.addEventListener("submit", event => {
+      event.preventDefault();
+      filterLeagues();
+    });
+
+    sportFilter.addEventListener("change", filterLeagues);
+
+    searchInput.addEventListener("input", filterLeagues);
+
+    displayLeagues(leagues);
+  </script>
 
 </body>
 </html>
