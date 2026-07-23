@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "customers")
@@ -13,7 +14,9 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id")
+    private Long customerId;
+
 
     private String name;
 
@@ -24,7 +27,14 @@ public class Customer {
 
     private String favoriteSport;
 
-    // JPA requires an empty constructor
+    private String skillLevel;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private String role = "CUSTOMER";
     public Customer() {
     }
 
@@ -40,12 +50,12 @@ public class Customer {
         this.favoriteSport = favoriteSport;
     }
 
-    public Long getId() {
-        return id;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public String getName() {
@@ -79,4 +89,26 @@ public class Customer {
     public void setFavoriteSport(String favoriteSport) {
         this.favoriteSport = favoriteSport;
     }
+    public String getPassword() {
+    return password;
+    }
+
+    public void setPassword(String password) {
+    this.password = password;
+    }
+
+    public String getRole() {
+    return role;
+    }
+
+    public void setRole(String role) {
+    this.role = role;
+    }
+    public String getSkillLevel() {
+    return skillLevel;
+}
+
+public void setSkillLevel(String skillLevel) {
+    this.skillLevel = skillLevel;
+}
 }

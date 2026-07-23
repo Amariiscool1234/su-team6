@@ -42,7 +42,7 @@ public class ReviewService {
     }
 
     public List<Review> getReviewsByCustomer(Long customerId) {
-        return reviewRepository.findByCustomerId(customerId);
+        return reviewRepository.findReviewsByCustomerId(customerId);
     }
 
     public Review createReview(ReviewRequest request) {
@@ -71,7 +71,7 @@ public class ReviewService {
         boolean approved =
                 registrationRepository
                         .existsByCustomerIdAndTeamIdAndStatus(
-                                customer.getId(),
+                                customer.getCustomerId(),
                                 team.getId(),
                                 "APPROVED"
                         );
@@ -84,7 +84,7 @@ public class ReviewService {
 
         if (
                 reviewRepository.existsByCustomerIdAndTeamId(
-                        customer.getId(),
+                        customer.getCustomerId(),
                         team.getId()
                 )
         ) {

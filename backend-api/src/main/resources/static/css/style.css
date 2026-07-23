@@ -1929,7 +1929,6 @@ footer {
     box-shadow: 0 4px 12px rgba(0,0,0,.08);
 }
 
-/* Responsive */
 
 @media (max-width:768px){
 
@@ -2009,6 +2008,90 @@ footer {
 .profile-card .danger-button,
 .settings-dialog .danger-button {
     background: #b3261e;
+}
+.logout-btn {
+    background: #c62828;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #a51f1f;
+}
+.leagues-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.leagues-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.leagues-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#sport-filter {
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+}
+
+#league-message {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.league-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.league-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.league-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.league-card p {
+    margin: 9px 0;
+}
+
+.view-league-button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #222;
+    color: white;
+    cursor: pointer;
+}
+
+.view-league-button:hover {
+    background-color: #444;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 1.1rem;
 }
 /* Provider roster, schedule, and live-dashboard workspace */
 .provider-management-shell {

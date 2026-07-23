@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>League Finder | Home </title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Team Records | League Finder</title>
+
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
         .records-container {
@@ -55,28 +56,32 @@
 
 <header>
     <nav class="navbar">
-      <div class="logo">
-    <div class="shield">
-        <span>LF</span>
-    </div>
 
-    <div class="logo-text">
-        <h1>League Finder</h1>
-        <p>Find. Play. Compete.</p>
-    </div>
-</div>
+        <div class="logo">
+            <div class="shield">
+                <span>LF</span>
+            </div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="leagues.html">Browse Leagues</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="register.html">Register</a></li>
-      </ul>
+            <div class="logo-text">
+                <h1>League Finder</h1>
+                <p>Find. Play. Compete.</p>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="leagues.html">Browse Leagues</a></li>
+            <li><a href="records.html">Team Records</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+
     </nav>
-  </header>
+</header>
 
 <main class="records-container">
+
     <h1>Team Records</h1>
     <p>Compare team performance throughout the season.</p>
 
@@ -84,18 +89,19 @@
 
     <table id="records-table" class="records-table" hidden>
         <thead>
-        <tr>
-            <th>Team</th>
-            <th>Sport</th>
-            <th>Wins</th>
-            <th>Losses</th>
-            <th>Ties</th>
-            <th>Record</th>
-        </tr>
+            <tr>
+                <th>Team</th>
+                <th>Sport</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <th>Ties</th>
+                <th>Record</th>
+            </tr>
         </thead>
 
         <tbody id="records-body"></tbody>
     </table>
+
 </main>
 
 <script>
@@ -115,6 +121,7 @@
 
             if (teams.length === 0) {
                 message.textContent = "No team records are available.";
+                recordsTable.hidden = true;
                 return;
             }
 
@@ -139,9 +146,13 @@
             recordsTable.hidden = false;
 
         } catch (error) {
-            console.error(error);
+            console.error("Error loading records:", error);
+
+            message.hidden = false;
             message.textContent =
                 "Could not load team records. Make sure the backend is running.";
+
+            recordsTable.hidden = true;
         }
     }
 

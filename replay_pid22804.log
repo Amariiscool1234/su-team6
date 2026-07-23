@@ -1,0 +1,48 @@
+version 2
+JvmtiExport can_access_local_variables 0
+JvmtiExport can_hotswap_or_post_breakpoint 1
+JvmtiExport can_post_on_exceptions 0
+# 391 ciObject found
+instanceKlass org/eclipse/osgi/container/Module
+ciInstanceKlass java/lang/Cloneable 1 0 7 100 1 100 1 1 1
+instanceKlass org/eclipse/core/resources/ISaveContext
+instanceKlass org/eclipse/core/resources/ISavedState
+instanceKlass org/eclipse/core/internal/resources/SaveManager
+instanceKlass org/eclipse/core/internal/watson/IElementInfoFlattener
+instanceKlass org/eclipse/core/internal/resources/SyncInfoWriter
+instanceKlass org/eclipse/core/internal/resources/Synchronizer
+instanceKlass org/eclipse/core/internal/resources/MarkerWriter
+instanceKlass org/eclipse/core/internal/resources/MarkerDeltaManager
+instanceKlass org/eclipse/core/internal/resources/MarkerTypeDefinitionCache$MarkerTypeDefinition
+instanceKlass org/eclipse/core/internal/resources/MarkerTypeDefinitionCache
+instanceKlass org/eclipse/core/internal/resources/MarkerInfo
+instanceKlass org/eclipse/core/internal/resources/IMarkerSetElement
+instanceKlass org/eclipse/core/internal/resources/MarkerManager
+instanceKlass  @bci org/eclipse/core/internal/events/NotificationManager$NotifyJob <init> (Lorg/eclipse/core/internal/events/NotificationManager;)V 13 <appendix> argL0 ; # org/eclipse/core/internal/events/NotificationManager$NotifyJob$$Lambda+0x000002230119a238
+instanceKlass org/eclipse/core/internal/events/ResourceChangeListenerList
+instanceKlass org/eclipse/core/internal/events/NotificationManager
+instanceKlass java/util/stream/SortedOps
+instanceKlass  @bci org/eclipse/core/internal/runtime/InternalPlatform getBundles0 (Ljava/lang/String;Ljava/lang/String;)Ljava/util/stream/Stream; 90 <appendix> argL0 ; # org/eclipse/core/internal/runtime/InternalPlatform$$Lambda+0x0000022301194470
+instanceKlass  @bci org/eclipse/core/internal/runtime/InternalPlatform getBundles0 (Ljava/lang/String;Ljava/lang/String;)Ljava/util/stream/Stream; 80 <appendix> argL0 ; # org/eclipse/core/internal/runtime/InternalPlatform$$Lambda+0x0000022301194230
+instanceKlass org/eclipse/core/internal/events/BuildManager$DeltaCache
+instanceKlass org/eclipse/core/resources/IResourceDelta
+instanceKlass org/eclipse/core/resources/ICommand
+instanceKlass org/eclipse/core/internal/events/InternalBuilder
+instanceKlass org/eclipse/core/resources/IBuildContext
+instanceKlass org/eclipse/core/internal/events/BuildManager
+instanceKlass org/eclipse/core/internal/resources/FilterTypeManager$1
+instanceKlass org/eclipse/core/internal/resources/FilterDescriptor
+instanceKlass org/eclipse/core/resources/IFilterMatcherDescriptor
+instanceKlass org/eclipse/core/internal/resources/FilterTypeManager
+instanceKlass org/eclipse/core/resources/IProjectNatureDescriptor
+instanceKlass org/eclipse/core/internal/resources/NatureManager
+instanceKlass org/eclipse/core/internal/events/ILifecycleListener
+instanceKlass org/eclipse/core/internal/resources/PathVariableManager
+instanceKlass  @bci org/eclipse/core/internal/resources/WorkspaceRoot getProject (Ljava/lang/String;)Lorg/eclipse/core/resources/IProject; 95 <appendix> member <vmtarget> ; # org/eclipse/core/internal/resources/WorkspaceRoot$$Lambda+0x0000022301187378
+instanceKlass java/text/AttributedCharacterIterator$Attribute
+instanceKlass java/text/FieldPosition$Delegate
+instanceKlass java/text/Format$FieldDelegate
+instanceKlass java/text/DigitList
+instanceKlass  @bci sun/util/locale/provider/JRELocaleProviderAdapter getDecimalFormatSymbolsProvider ()Ljava/text/spi/DecimalFormatSymbolsProvider; 8 <appendix> member <vmtarget> ; # sun/util/locale/provider/JRELocaleProviderAdapter$$Lambda+0x800000065
+instanceKlass java/text/DecimalFormatSymbols
+instanceKlass sun/util/resources/Bundles$CacheKeyReference

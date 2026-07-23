@@ -37,10 +37,7 @@ public class CustomerService {
         if (existingCustomer != null) {
             existingCustomer.setName(updatedCustomer.getName());
             existingCustomer.setEmail(updatedCustomer.getEmail());
-
-            // Add any additional fields you have
-            // existingCustomer.setPhone(updatedCustomer.getPhone());
-            // existingCustomer.setSkillLevel(updatedCustomer.getSkillLevel());
+            existingCustomer.setSkillLevel(updatedCustomer.getSkillLevel());
 
             return customerRepository.save(existingCustomer);
         }

@@ -35,13 +35,42 @@
           <div class="auth-card">
                <h2>Login</h2>
                <p> Welcome back. Sign in to find or mangage leagues/team in your area.</p>
-               <form class="auth-form"> 
-                    <input type="email" placeholder="Email Address" required>
-                    <input type ="password" placeholder="Password" required>
+              <form action="/login" method="post">
 
-                    <button type="submit">Login</button>
+    <label for="email">Email</label>
+    <input
+        type="email"
+        name="username"
+        placeholder="email"
+        required
+    >
 
-               </form>
+    <label for="password">Password</label>
+    <input
+        type="password"
+        name="password"
+        placeholder="password"
+        required
+    >
+
+    <button type="submit">Log In</button>
+
+    <p id="login-message"></p>
+</form>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.has("error")) {
+        document.getElementById("login-message").textContent =
+            "Incorrect email or password.";
+    }
+
+    if (params.has("logout")) {
+        document.getElementById("login-message").textContent =
+            "You have been logged out.";
+    }
+</script>
 
                 <p class="auth-link">
                      Dont have an account? <a href = "register.html">Register here</a>
