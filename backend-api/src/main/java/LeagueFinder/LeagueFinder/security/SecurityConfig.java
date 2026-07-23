@@ -44,6 +44,23 @@ public class SecurityConfig {
                     "/register.html",
                     "/auth/register",
 
+                    // Public API documentation and endpoints
+                    "/api-docs.html",
+                      "/leagues",
+                         "/leagues/**",
+                        "/providers",
+                       "/providers/**",
+                      "/customers",
+                       "/customers/**",
+                       "/teams",
+                       "/teams/**",
+                        "/games",
+                     "/games/**",
+                     "/reviews",
+                      "/reviews/**",
+                      "/team-registrations",
+                       "/team-registrations/**",
+
                     // Static files
                     "/css/**",
                     "/js/**",
