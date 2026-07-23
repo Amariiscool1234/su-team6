@@ -29,86 +29,46 @@ public class SecurityConfig {
 
         http
             .userDetailsService(userDetailsService)
-
             .authorizeHttpRequests(auth -> auth
-
-                // Pages everyone can visit
                 .requestMatchers(
                     "/",
-                    "/index.html",
-                    "/about.html",
-                    "/contact.html",
-                    "/leagues.html",
-                    "/league-details.html",
+                    "/api-docs.html",
                     "/login.html",
                     "/register.html",
                     "/auth/register",
-
-                    // Public API documentation and endpoints
-                    "/api-docs.html",
-                      "/leagues",
-                         "/leagues/**",
-                        "/providers",
-                       "/providers/**",
-                      "/customers",
-                       "/customers/**",
-                       "/teams",
-                       "/teams/**",
-                        "/games",
-                     "/games/**",
-                     "/reviews",
-                      "/reviews/**",
-                      "/team-registrations",
-                       "/team-registrations/**",
-
-                    // Static files
+                    "/leagues",
+                    "/leagues/**",
+                    "/providers",
+                    "/providers/**",
+                    "/customers",
+                    "/customers/**",
+                    "/teams",
+                    "/teams/**",
+                    "/games",
+                    "/games/**",
+                    "/reviews",
+                    "/reviews/**",
+                    "/team-registrations",
+                    "/team-registrations/**",
                     "/css/**",
                     "/js/**",
                     "/images/**",
                     "/favicon.ico",
                     "/error"
                 ).permitAll()
-
-                // Customer-only pages
                 .requestMatchers(
                     "/player-dashboard.html",
                     "/player-profile.html",
                     "/review.html"
                 ).hasRole("CUSTOMER")
-
-                // Provider-only pages
                 .requestMatchers(
                     "/provider-profile.html",
                     "/organizer-dashboard.html",
                     "/create.html"
                 ).hasRole("PROVIDER")
-
-                // Customer API access
-                .requestMatchers(
-                    "/team-registrations/**",
-                    "/reviews/**"
-                ).hasRole("CUSTOMER")
-
-                // Provider API access
-                .requestMatchers(
-                    "/providers/**"
-                ).hasRole("PROVIDER")
-
-                // Teams can be viewed publicly
-                .requestMatchers(
-                    "/teams",
-                    "/teams/**"
-                ).permitAll()
-
-                // Logged-in users can access their account
-                .requestMatchers(
-                    "/auth/me"
-                ).authenticated()
-
-                // Anything not listed requires login
+                .requestMatchers("/auth/me").authenticated()
                 .anyRequest().authenticated()
             )
-
             .formLogin(form -> form
                 .loginPage("/login.html")
                 .loginProcessingUrl("/login")
@@ -116,14 +76,12 @@ public class SecurityConfig {
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .successHandler((request, response, authentication) -> {
-
                     boolean isProvider = authentication
                         .getAuthorities()
                         .stream()
                         .anyMatch(authority ->
                             authority.getAuthority().equals("ROLE_PROVIDER")
                         );
-
                     if (isProvider) {
                         response.sendRedirect("/provider-profile.html");
                     } else {
@@ -133,7 +91,6 @@ public class SecurityConfig {
                 .failureUrl("/login.html?error=true")
                 .permitAll()
             )
-
             .logout(logout -> logout
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/index.html")
@@ -141,7 +98,6 @@ public class SecurityConfig {
                 .deleteCookies("JSESSIONID")
                 .permitAll()
             )
-
             .csrf(csrf -> csrf.disable());
 
         return http.build();
