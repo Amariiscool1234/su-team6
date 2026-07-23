@@ -21,8 +21,14 @@ public class Team {
     private String sport;
     private String skillLevel;
     private Integer maxPlayers;
+
+    @Transient
     private int wins = 0;
+
+    @Transient
     private int losses = 0;
+
+    @Transient
     private int ties = 0;
 
     @ManyToOne
