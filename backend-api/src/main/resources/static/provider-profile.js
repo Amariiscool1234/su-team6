@@ -4,23 +4,28 @@ let providerId = Number(localStorage.getItem("leagueFinderProviderId")) || null;
 
 async function loadProvider() {
     try {
-        if (providerId === null) {
-            const response = await fetch("/providers");
-            if (!response.ok) throw new Error("Could not load providers.");
-            const providers = await response.json();
-            if (providers.length === 0) return;
-            providerId = providers[0].id;
-            localStorage.setItem("leagueFinderProviderId", providerId);
-        }
+        if (providerId !== null) {
+            const savedProviderResponse = await fetch(`/providers/${providerId}`);
+            if (savedProviderResponse.ok) {
+                displayProvider(await savedProviderResponse.json());
+                return;
+            }
 
-        const response = await fetch(`/providers/${providerId}`);
-        if (!response.ok) {
             providerId = null;
             localStorage.removeItem("leagueFinderProviderId");
+        }
+
+        const response = await fetch("/providers");
+        if (!response.ok) throw new Error("Could not load providers.");
+        const providers = await response.json();
+        if (providers.length === 0) {
+            showMessage("Enter your information to create a profile.");
             return;
         }
 
-        displayProvider(await response.json());
+        providerId = providers[0].id;
+        localStorage.setItem("leagueFinderProviderId", providerId);
+        displayProvider(providers[0]);
     } catch (error) {
         showMessage(error.message, true);
     }

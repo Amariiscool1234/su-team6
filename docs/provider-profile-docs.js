@@ -5,18 +5,28 @@ let providerId = Number(localStorage.getItem("leagueFinderProviderId")) || null;
 
 async function loadProvider() {
     try {
-        if (!providerId) {
-            const response = await fetch(`${API_BASE_URL}/providers`);
-            if (!response.ok) throw new Error("Could not load provider information.");
-            const providers = await response.json();
-            if (providers.length === 0) return;
-            providerId = providers[0].id;
-            localStorage.setItem("leagueFinderProviderId", providerId);
+        if (providerId) {
+            const savedProviderResponse = await fetch(`${API_BASE_URL}/providers/${providerId}`);
+            if (savedProviderResponse.ok) {
+                displayProfile(await savedProviderResponse.json());
+                return;
+            }
+
+            providerId = null;
+            localStorage.removeItem("leagueFinderProviderId");
         }
 
-        const response = await fetch(`${API_BASE_URL}/providers/${providerId}`);
-        if (!response.ok) throw new Error("Could not load the provider profile.");
-        displayProfile(await response.json());
+        const response = await fetch(`${API_BASE_URL}/providers`);
+        if (!response.ok) throw new Error("Could not load provider information.");
+        const providers = await response.json();
+        if (providers.length === 0) {
+            showMessage("Enter your information to create a profile.");
+            return;
+        }
+
+        providerId = providers[0].id;
+        localStorage.setItem("leagueFinderProviderId", providerId);
+        displayProfile(providers[0]);
     } catch (error) {
         showMessage(error.message, true);
     }
