@@ -20,6 +20,7 @@
         <li><a href="organizer-dashboard.html">Dashboard</a></li>
         <li><a href="provider-profile.html">Provider Profile</a></li>
         <li><a href="manage-teams.html">Manage Teams</a></li>
+        <li><a href="provider-management.html">Roster &amp; Schedule</a></li>
     </ul>
 </nav>
 
@@ -32,6 +33,8 @@
     <div class="profile-card">
         <h2>Create Team</h2>
         <form id="team-prototype-form" class="provider-form">
+            <input id="team-id" type="hidden">
+
             <label for="team-name">Team Name</label>
             <input id="team-name" required>
 
@@ -49,7 +52,13 @@
             <label for="team-size">Maximum Players</label>
             <input id="team-size" type="number" min="1" required>
 
-            <button type="submit">Create Team</button>
+            <label for="team-league">League</label>
+            <select id="team-league" required>
+                <option value="">Choose a league</option>
+            </select>
+
+            <button type="submit" id="team-submit-button">Create Team</button>
+            <button type="button" id="cancel-team-edit" hidden>Cancel Edit</button>
             <p id="team-prototype-message" class="prototype-message"></p>
         </form>
     </div>
@@ -59,11 +68,11 @@
         <div id="prototype-team-list">
             <article class="prototype-team-card">
                 <h3>Gate City Hoopers</h3>
-                <p>Basketball • Intermediate • 12 players</p>
+                <p>Basketball &bull; Intermediate &bull; 12 players</p>
             </article>
             <article class="prototype-team-card">
                 <h3>Triad Ballers</h3>
-                <p>Basketball • Advanced • 10 players</p>
+                <p>Basketball &bull; Advanced &bull; 10 players</p>
             </article>
         </div>
     </div>

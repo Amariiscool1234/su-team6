@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Leagues | League Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <div class="shield"><span>LF</span></div>
+    <div class="logo-text">
+      <h1>League Finder</h1>
+      <p>Find. Play. Compete.</p>
+    </div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leagues.html">Browse Leagues</a></li>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="league-details.html" class="btn primary">View Details</a></li>
+     <li><a href="records.html">Team Records</a></li>
+
+  </ul>
+</nav>
+
+<section class="league-search">
+  <h1>Browse Leagues</h1>
+  <p>Find basketball, flag football, volleyball, and soccer leagues near you.</p>
+
+  <form class="filters" id="league-search-form">
+    <input id="league-search-input" type="text" placeholder="Search league or city">
+
+    <select id="sport-filter" title="Select sport">
+      <option value="">All Sports</option>
+      <option value="Basketball">Basketball</option>
+      <option value="Flag Football">Flag Football</option>
+      <option value="Volleyball">Volleyball</option>
+      <option value="Soccer">Soccer</option>
+    </select>
+
+    <button type="submit">Search</button>
+  </form>
+  <p id="league-search-message" aria-live="polite"></p>
+</section>
+
+<section class="league-container" id = "league-list"></section>
+
+<footer>
+  <p>&copy; 2026 League Finder. All rights reserved.</p>
+</footer>
+
+ <script src="leagues.js"></script>
+
+</body>
+</html>

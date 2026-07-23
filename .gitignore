@@ -1,0 +1,5 @@
+.vscode/
+*.log
+hs_err_pid*
+backend-api/target/
+.DS_Store
