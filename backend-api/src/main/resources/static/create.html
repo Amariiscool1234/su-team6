@@ -21,6 +21,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="leagues.html">Browse Leagues</a></li>
     <li><a href="organizer-dashboard.html">Dashboard</a></li>
+    <li><a href="provider-management.html">Roster &amp; Schedule</a></li>
     <li><a href="login.html">Logout</a></li>
   </ul>
 </nav>
@@ -31,7 +32,8 @@
 </section>
 
 <section class="create-section">
-  <form class="create-form">
+  <form class="create-form" id="league-form">
+    <input id="league-id" type="hidden">
 
     <h2>League Information</h2>
 
@@ -84,7 +86,8 @@
     <label for="organizer-email">Organizer Email</label>
     <input id="organizer-email" type="email" placeholder="Ex: organizer@leaguefinder.com" required>
 
-    <button type="submit">Create League</button>
+    <button type="submit" id="league-submit-button">Create League</button>
+    <p id="league-form-message" class="prototype-message" aria-live="polite"></p>
 
   </form>
 </section>
@@ -93,5 +96,6 @@
   <p>&copy; 2026 League Finder. All rights reserved.</p>
 </footer>
 
+<script src="create-league.js"></script>
 </body>
 </html>

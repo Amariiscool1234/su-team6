@@ -50,9 +50,9 @@
 
 <section class="dashboard-header">
 
-<h1>Amari's Dashboard</h1>
+<h1 id="dashboard-provider-name">Provider Dashboard</h1>
 
-<p>Manage your leagues, teams, schedules, and announcements.</p>
+<p>Manage your listings, teams, schedules, and roster requests.</p>
 
 </section>
 
@@ -60,85 +60,66 @@
 
 <div class="card">
 
-<h2> My League</h2>
-
-<p>Summer Basketball League</p>
-
-<p>24 Players Registered</p>
-
-<p>Status: Registration Open</p>
-
-<button>Edit League</button>
+<h2>My League</h2>
+<p id="dashboard-league-name">Loading league information...</p>
+<p id="dashboard-league-location"></p>
+<a class="card-btn" id="dashboard-edit-league" href="create.html">Edit League</a>
 
 </div>
 
 
 <div class="card">
 
-<h2> Registered Players</h2>
-
-<p>24 Total Players</p>
-
-<p>4 Pending Requests</p>
-
-<button>Manage Players</button>
+<h2>Roster Requests</h2>
+<p><strong id="dashboard-approved-count">0</strong> approved players</p>
+<p><strong id="dashboard-pending-count">0</strong> pending requests</p>
+<a class="card-btn" href="provider-management.html#roster">Manage Players</a>
 
 </div>
 
 
 <div class="card">
 
-<h2> Schedule</h2>
-
-<p>12 Games Scheduled</p>
-
-<p>Next Game: July 10</p>
-
-<button>Edit Schedule</button>
+<h2>Schedule</h2>
+<p><strong id="dashboard-game-count">0</strong> games scheduled</p>
+<p id="dashboard-next-game">No upcoming game scheduled.</p>
+<a class="card-btn" href="provider-management.html#schedule">Edit Schedule</a>
 
 </div>
 
 
 <div class="card">
 
-<h2> Announcements</h2>
-
-<p>Create updates for every player.</p>
-
-<button>Create Announcement</button>
+<h2>Create a Listing</h2>
+<p>Post a new league so customers can find it.</p>
+<a class="card-btn" href="create.html">Create League</a>
 
 </div>
 
 
 <div class="card">
 
-<h2>League Revenue</h2>
-
-<p>Registration Fees Collected</p>
-
-<h3>$2,040</h3>
-
-<button>View Payments</button>
+<h2>Provider Profile</h2>
+<p>Keep your organization and contact information current.</p>
+<a class="card-btn" href="provider-profile.html">Update Profile</a>
 
 </div>
 
 
 <div class="card">
 
-<h2> League Statistics</h2>
-
-<p>Games Played: 6</p>
-
-<p>Average Attendance: 92%</p>
-
-<p>Teams: 8</p>
-
-<button>View Reports</button>
+<h2>Provider Statistics</h2>
+<p><strong id="dashboard-team-count">0</strong> teams</p>
+<p><strong id="dashboard-registration-count">0</strong> total registrations</p>
+<p><strong id="dashboard-rejected-count">0</strong> declined requests</p>
+<a class="card-btn" href="provider-management.html">View Details</a>
 
 </div>
 
 </section>
 
+<p id="dashboard-message" class="prototype-message" aria-live="polite"></p>
+<script src="provider-dashboard-docs.js"></script>
 </body>
 
 </html>

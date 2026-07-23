@@ -1680,3 +1680,120 @@ footer {
     color: #0d6efd;
     border: 4px solid rgba(255, 255, 255, 0.55);
 }
+/* Provider roster, schedule, and live-dashboard workspace */
+.provider-management-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 36px auto 64px;
+  display: grid;
+  gap: 28px;
+}
+
+.provider-workspace {
+  background: #fff;
+  border: 1px solid #dce5f1;
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 12px 30px rgba(15, 39, 71, 0.08);
+  scroll-margin-top: 24px;
+}
+
+.workspace-heading,
+.management-card,
+.management-actions {
+  display: flex;
+  align-items: center;
+}
+
+.workspace-heading {
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.workspace-heading h2,
+.management-card h3 {
+  margin: 0;
+  color: #102a4c;
+}
+
+.workspace-heading p,
+.management-card p {
+  margin: 5px 0 0;
+  color: #64748b;
+}
+
+.workspace-badge {
+  padding: 7px 12px;
+  color: #174ea6;
+  background: #eaf2ff;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.management-list {
+  display: grid;
+  gap: 13px;
+  margin-top: 22px;
+}
+
+.management-card {
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 13px;
+}
+
+.management-actions {
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.management-actions button,
+.dashboard-grid .card-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  color: #fff;
+  background: #1f63d3;
+  border: 0;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.management-actions .danger-button {
+  background: #b4232f;
+}
+
+.management-form {
+  max-width: 760px;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.status-pending { color: #8a4b00; background: #fff1cc; }
+.status-approved { color: #17653a; background: #dff7e9; }
+.status-rejected { color: #982f38; background: #fde4e7; }
+
+#dashboard-message {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto 40px;
+}
+
+@media (max-width: 680px) {
+  .workspace-heading,
+  .management-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

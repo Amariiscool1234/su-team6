@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roster & Schedule | League Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <div class="shield"><span>LF</span></div>
+        <div class="logo-text"><h1>League Finder</h1><p>Find. Play. Compete.</p></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="organizer-dashboard.html">Dashboard</a></li>
+        <li><a href="provider-profile.html">Profile</a></li>
+        <li><a href="manage-teams.html">Manage Teams</a></li>
+    </ul>
+</nav>
+
+<section class="profile-header">
+    <div class="profile-picture">PM</div>
+    <h1>Roster & Schedule Management</h1>
+    <p>Review player requests and keep game information accurate.</p>
+</section>
+
+<main class="provider-management-shell">
+    <section class="provider-workspace" id="roster">
+        <div class="workspace-heading">
+            <div><h2>Roster Requests</h2><p>Approve or decline customers requesting to join your teams.</p></div>
+            <span id="roster-summary" class="workspace-badge">Loading...</span>
+        </div>
+        <div id="roster-request-list" class="management-list"></div>
+        <p id="roster-message" class="prototype-message" aria-live="polite"></p>
+    </section>
+
+    <section class="provider-workspace" id="schedule">
+        <div class="workspace-heading">
+            <div><h2>Game Schedule</h2><p>Create, update, or remove scheduled games.</p></div>
+        </div>
+        <form id="game-form" class="provider-form management-form">
+            <input id="game-id" type="hidden">
+            <label for="game-league">League</label>
+            <select id="game-league" required></select>
+            <label for="game-date">Date</label>
+            <input id="game-date" type="date" required>
+            <label for="game-time">Time</label>
+            <input id="game-time" type="time" required>
+            <label for="home-team">Home Team</label>
+            <input id="home-team" required>
+            <label for="away-team">Away Team</label>
+            <input id="away-team" required>
+            <label for="game-venue">Venue</label>
+            <input id="game-venue" required>
+            <label for="game-court">Court / Field</label>
+            <input id="game-court" placeholder="Court 1 or Field A">
+            <div class="management-actions">
+                <button id="game-submit-button" type="submit">Schedule Game</button>
+                <button id="cancel-game-edit" type="button" hidden>Cancel Edit</button>
+            </div>
+        </form>
+        <p id="game-message" class="prototype-message" aria-live="polite"></p>
+        <div id="game-list" class="management-list"></div>
+    </section>
+</main>
+
+<footer><p>&copy; 2026 League Finder. All rights reserved.</p></footer>
+<script src="provider-management.js"></script>
+</body>
+</html>
